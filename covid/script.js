@@ -3250,6 +3250,36 @@ const tables = {
 };
 
 const ifrValues = {
+  15: {
+    ifr: {
+      lifr: 0.04,
+      uifr: 0.1,
+    },
+  },
+  16: {
+    ifr: {
+      lifr: 0.04,
+      uifr: 0.1,
+    },
+  },
+  17: {
+    ifr: {
+      lifr: 0.04,
+      uifr: 0.1,
+    },
+  },
+  18: {
+    ifr: {
+      lifr: 0.04,
+      uifr: 0.1,
+    },
+  },
+  19: {
+    ifr: {
+      lifr: 0.04,
+      uifr: 0.1,
+    },
+  },
   20: {
     ifr: {
       lifr: 0.04,
