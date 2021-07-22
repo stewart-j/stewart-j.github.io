@@ -3640,7 +3640,7 @@ const ifrValues = {
       uifr: 108,
     },
   },
-  85: {
+  "85+": {
     ifr: {
       lifr: 30,
       uifr: 119,
@@ -3684,9 +3684,11 @@ let age = 20;
 let bmiMod = 0;
 let bmiCat = 0;
 let person = tables[20];
+let covidAge = age;
 
 function clearAll() {
   age = 20;
+  covidAge = age;
   person = tables[20];
   modifier = 0;
   sexMod = 0;
@@ -3718,10 +3720,10 @@ function clearAll() {
   otherInputs.forEach((e) => {
     e.checked = false;
   });
-  updateAge(age);
+  updateAge();
 }
 
-function updateIFR(covidAge = age) {
+function updateIFR() {
   lowIFR.innerText = ifrValues[covidAge].ifr.lifr;
   highIFR.innerText = ifrValues[covidAge].ifr.uifr;
 }
@@ -3749,7 +3751,7 @@ function refreshDisplay() {
 function updateAge() {
   let others = othMod.reduce((a, b) => a + b, 0);
   modifier = sexMod + ethMod + bmiMod + athMod + diaMod + kidMod + nbcMod + bldMod + hrtMod + others;
-  let covidAge = Number(age) + modifier;
+  covidAge = Number(age) + modifier;
   if (covidAge >= 85) {
     covidAge = "85+";
   }
@@ -3763,7 +3765,7 @@ function updateAge() {
   if (covidAge < 20) {
     document.querySelector("#below_20").classList.remove("d-none");
   }
-  updateIFR(covidAge);
+  updateIFR();
 }
 
 function calcImpBMI() {
@@ -4040,4 +4042,4 @@ for (let check of otherInputs) {
 }
 
 refreshDisplay();
-updateIFR(age);
+updateIFR();
