@@ -3268,6 +3268,7 @@ let display = document.querySelector("#display");
 let calcBMIbtn = document.querySelector("#bmi_calc");
 let bmiDisplay = document.querySelector("#bmi_cat_disp");
 let otherInputs = document.querySelectorAll(".oth_grp input");
+let modTable = document.querySelector("#mod_table tbody");
 let modifier = 0;
 let sexMod = 0;
 let ethMod = 0;
@@ -3282,6 +3283,22 @@ let age = 20;
 let bmiMod = 0;
 let bmiCat = 0;
 let person = tables[20];
+
+function toggleRow(id) {
+  if (id != "none") {
+    let rowID = `#tr_${id}`;
+    console.log(rowID);
+    modTable.querySelector(rowID).classList.toggle("d-none");
+  }
+}
+
+function setModValue(id, value = 0) {
+  if (id != "none") {
+    let valID = `#tv_${id}`;
+    let row = modTable.querySelector(valID);
+    row.innerText = value;
+  }
+}
 
 function refreshDisplay() {
   display.innerText = `${age} + ${modifier} = ${Number(age) + modifier}`;
@@ -3299,6 +3316,7 @@ function updateAge() {
   } else {
     display.innerText = `${age} - ${Math.abs(modifier)} = ${covidAge}`;
   }
+  document.querySelector("#tbl_total").innerText = modifier;
 }
 
 function calcImpBMI() {
@@ -3333,6 +3351,63 @@ function calcBMIcat(bmi) {
   }
 }
 
+function ethnicToggle(id) {
+  modTable.querySelector("#tr_asian").classList.add("d-none");
+  modTable.querySelector("#tr_black").classList.add("d-none");
+  modTable.querySelector("#tr_mixed").classList.add("d-none");
+  modTable.querySelector("#tr_other").classList.add("d-none");
+  toggleRow(id);
+}
+
+function bmiToggle(id) {
+  modTable.querySelector("#tr_bmi1").classList.add("d-none");
+  modTable.querySelector("#tr_bmi2").classList.add("d-none");
+  modTable.querySelector("#tr_bmi3").classList.add("d-none");
+  toggleRow(id);
+}
+
+function asthmaToggle(id) {
+  modTable.querySelector("#tr_mild").classList.add("d-none");
+  modTable.querySelector("#tr_severe").classList.add("d-none");
+  toggleRow(id);
+}
+
+function diabetesToggle(id) {
+  modTable.querySelector("#tr_db0").classList.add("d-none");
+  modTable.querySelector("#tr_db1").classList.add("d-none");
+  modTable.querySelector("#tr_db2").classList.add("d-none");
+  modTable.querySelector("#tr_db3").classList.add("d-none");
+  modTable.querySelector("#tr_db4").classList.add("d-none");
+  modTable.querySelector("#tr_db5").classList.add("d-none");
+  toggleRow(id);
+}
+
+function ckdToggle(id) {
+  modTable.querySelector("#tr_kd0").classList.add("d-none");
+  modTable.querySelector("#tr_kd1").classList.add("d-none");
+  toggleRow(id);
+}
+
+function nbcToggle(id) {
+  modTable.querySelector("#tr_nbc0").classList.add("d-none");
+  modTable.querySelector("#tr_nbc1").classList.add("d-none");
+  modTable.querySelector("#tr_nbc2").classList.add("d-none");
+  toggleRow(id);
+}
+
+function bloodToggle(id) {
+  modTable.querySelector("#tr_bc0").classList.add("d-none");
+  modTable.querySelector("#tr_bc1").classList.add("d-none");
+  modTable.querySelector("#tr_bc2").classList.add("d-none");
+  toggleRow(id);
+}
+
+function heartToggle(id) {
+  modTable.querySelector("#tr_h0").classList.add("d-none");
+  modTable.querySelector("#tr_h1").classList.add("d-none");
+  toggleRow(id);
+}
+
 ageInput.addEventListener("change", () => {
   age = ageInput.value;
   person = tables[age];
@@ -3343,8 +3418,10 @@ ageInput.addEventListener("change", () => {
 sexFemale.addEventListener("change", () => {
   if (sexFemale.checked) {
     sexMod = -5;
+    modTable.querySelector("#tr_female").classList.remove("d-none");
   } else {
     sexMod = 0;
+    modTable.querySelector("#tr_female").classList.add("d-none");
   }
   updateAge();
 });
@@ -3352,15 +3429,23 @@ sexFemale.addEventListener("change", () => {
 sexMale.addEventListener("change", () => {
   if (sexFemale.checked) {
     sexMod = -5;
+    modTable.querySelector("#tr_female").classList.remove("d-none");
   } else {
     sexMod = 0;
+    modTable.querySelector("#tr_female").classList.add("d-none");
   }
   updateAge();
 });
 
 ethnicity.addEventListener("change", () => {
-  ethMod = Number(ethnicity.value);
+  let eVal = ethnicity.value;
+  if (eVal != "none") {
+    ethMod = person.modifiers.ethnicity[eVal];
+  } else {
+    ethMod = 0;
+  }
   updateAge();
+  ethnicToggle(eVal);
 });
 
 imperial_toggle.addEventListener("click", () => {
@@ -3405,6 +3490,8 @@ bmiGroup.addEventListener("change", () => {
   let bVal = bmiGroup.value;
   bmiMod = person.modifiers.bmi[bVal];
   updateAge();
+  bmiToggle(bVal);
+  setModValue(bVal, bmiMod);
 });
 
 asthma.addEventListener("change", () => {
@@ -3415,6 +3502,8 @@ asthma.addEventListener("change", () => {
     athMod = 0;
   }
   updateAge();
+  asthmaToggle(aVal);
+  setModValue(aVal, athMod);
 });
 
 diabetes.addEventListener("change", () => {
@@ -3425,6 +3514,8 @@ diabetes.addEventListener("change", () => {
     diaMod = 0;
   }
   updateAge();
+  diabetesToggle(dVal);
+  setModValue(dVal, diaMod);
 });
 
 kidney.addEventListener("change", () => {
@@ -3435,6 +3526,8 @@ kidney.addEventListener("change", () => {
     kidMod = 0;
   }
   updateAge();
+  ckdToggle(kVal);
+  setModValue(kVal, kidMod);
 });
 
 nbc.addEventListener("change", () => {
@@ -3445,6 +3538,8 @@ nbc.addEventListener("change", () => {
     nbcMod = 0;
   }
   updateAge();
+  nbcToggle(nbVal);
+  setModValue(nbVal, nbcMod);
 });
 
 blood.addEventListener("change", () => {
@@ -3455,6 +3550,8 @@ blood.addEventListener("change", () => {
     bldMod = 0;
   }
   updateAge();
+  bloodToggle(bVal);
+  setModValue(bVal, bldMod);
 });
 
 heart.addEventListener("change", () => {
@@ -3465,6 +3562,8 @@ heart.addEventListener("change", () => {
     hrtMod = 0;
   }
   updateAge();
+  heartToggle(hVal);
+  setModValue(hVal, hrtMod);
 });
 
 for (let check of otherInputs) {
@@ -3476,6 +3575,8 @@ for (let check of otherInputs) {
       othMod[index] = 0;
     }
     updateAge();
+    toggleRow(this.value);
+    setModValue(this.value, othMod[index]);
   });
 }
 
