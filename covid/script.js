@@ -3284,6 +3284,41 @@ let bmiMod = 0;
 let bmiCat = 0;
 let person = tables[20];
 
+function clearAll() {
+  age = 20;
+  person = tables[20];
+  modifier = 0;
+  sexMod = 0;
+  ethMod = 0;
+  athMod = 0;
+  diaMod = 0;
+  kidMod = 0;
+  nbcMod = 0;
+  bldMod = 0;
+  hrtMod = 0;
+  othMod = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+  bmiMod = 0;
+  bmiCat = 0;
+  sexFemale.checked = false;
+  sexMale.checked = false;
+  ethnicity.value = "none";
+  bmiGroup.value = "none";
+  asthma.value = "none";
+  diabetes.value = "none";
+  kidney.value = "none";
+  nbc.value = "none";
+  blood.value = "none";
+  heart.value = "none";
+  let togglRows = modTable.querySelectorAll(".tgl");
+  togglRows.forEach((e) => {
+    e.classList.add("d-none");
+  });
+  otherInputs.forEach((e) => {
+    e.checked = false;
+  });
+  updateAge();
+}
+
 function toggleRow(id) {
   if (id != "none") {
     let rowID = `#tr_${id}`;
@@ -3409,6 +3444,7 @@ function heartToggle(id) {
 }
 
 ageInput.addEventListener("change", () => {
+  clearAll();
   age = ageInput.value;
   person = tables[age];
   refreshDisplay();
