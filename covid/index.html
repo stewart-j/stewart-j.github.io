@@ -10,18 +10,27 @@
   </head>
   <body>
     <main class="container-fluid">
-      <div class="row m-3">
-        <div class="alert alert-info">
-          <p>
-            Details of the Covid-age project, evidence-base and warnings are published at
-            <a href="https://alama.org.uk/covid-19-medical-risk-assessment/" class="alert-link">https://alama.org.uk/covid-19-medical-risk-assessment/</a>
-          </p>
-          <p>Users are strongly advised to read the guidance on the ALAMA website before using the Covid-age tool.</p>
-          <p>The evidence reviewed allows calculation of indicative Covid-age for adults aged 20-75. Clinical judgement should be used to adjust the Covid-age value for workers outside this age range.</p>
+      <div class="row">
+        <div class="col m-3 mb-0 d-sm-none d-block">
+          <div class="alert alert-info">
+            <p>
+              Ensure you understand the use of this tool before use, visit <a href="https://alama.org.uk/covid-19-medical-risk-assessment/" class="alert-link">https://alama.org.uk/covid-19-medical-risk-assessment/</a> for further details.
+            </p>
+          </div>
+        </div>
+        <div class="col col m-3 mb-0 d-none d-sm-block">
+          <div class="alert alert-info">
+            <p>
+              Details of the Covid-age project, evidence-base and warnings are published at
+              <a href="https://alama.org.uk/covid-19-medical-risk-assessment/" class="alert-link">https://alama.org.uk/covid-19-medical-risk-assessment/</a>
+            </p>
+            <p>Users are strongly advised to read the guidance on the ALAMA website before using the Covid-age tool.</p>
+            <p>The evidence reviewed allows calculation of indicative Covid-age for adults aged 20-75. Clinical judgement should be used to adjust the Covid-age value for workers outside this age range.</p>
+          </div>
         </div>
       </div>
       <div class="row">
-        <div class="col bg-light m-4 p-4 border border-primary rounded">
+        <div class="col bg-light m-4 mt-2 p-4 border border-primary rounded">
           <div id="age_grp" class="mb-3">
             <p class="form-label fw-bold lh-lg">Please input the person’s age in years (if under 20, enter 20 and if over 75 enter 75)</p>
             <input class="form-control" type="number" name="age" id="age" value="20" min="20" max="75" />
@@ -221,7 +230,7 @@
             <p class="fs-6 fw-light">If infection occurs, the probability that it will be fatal is expected to lie between <span id="lifr">0</span> per 1000 and <span id="uifr">0</span> per 1000</p>
             <p class="fst-italic fs-6 fw-light d-none" id="below_20">For Covid-ages less than 20, the risk of fatality may be even lower than indicated</p>
           </div>
-          <div class="row bg-light m-4 p-4 border border-primary rounded">
+          <div class="row bg-light m-4 p-4 border border-primary rounded d-none d-sm-block">
             <table id="mod_table" class="table">
               <thead>
                 <tr>
