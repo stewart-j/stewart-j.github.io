@@ -3339,7 +3339,7 @@ function calcMetBMI() {
 
 function calcBMIcat(bmi) {
   if (bmi < 30) {
-    return "bmi0";
+    return "none";
   } else if (bmi < 35) {
     return "bmi1";
   } else if (bmi < 40) {
@@ -3347,7 +3347,7 @@ function calcBMIcat(bmi) {
   } else if (bmi > 40) {
     return "bmi3";
   } else {
-    return "bmi0";
+    return "none";
   }
 }
 
@@ -3466,7 +3466,7 @@ calcBMIbtn.addEventListener("click", () => {
     bmiCat = calcBMIcat(calcMetBMI());
   }
   switch (bmiCat) {
-    case "bmi0":
+    case "none":
       bmiDisplay.innerText = "Less than 30";
       break;
     case "bmi1":
@@ -3482,13 +3482,24 @@ calcBMIbtn.addEventListener("click", () => {
       bmiDisplay.innerText = "";
   }
   document.querySelector("#bmi_cat").value = bmiCat;
-  bmiMod = person.modifiers.bmi[bmiCat];
+  console.log(bmiCat);
+  if (bmiCat != "none") {
+    bmiMod = person.modifiers.bmi[bmiCat];
+  } else {
+    bmiMod = 0;
+  }
+  bmiToggle(bmiCat);
+  setModValue(bmiCat, bmiMod);
   updateAge();
 });
 
 bmiGroup.addEventListener("change", () => {
   let bVal = bmiGroup.value;
-  bmiMod = person.modifiers.bmi[bVal];
+  if (bVal != "none") {
+    bmiMod = person.modifiers.bmi[bVal];
+  } else {
+    bmiMod = 0;
+  }
   updateAge();
   bmiToggle(bVal);
   setModValue(bVal, bmiMod);
