@@ -215,7 +215,10 @@
         </div>
         <div class="col">
           <div class="row bg-primary m-4 p-4 border border-primary rounded fs-3 fw-bold text-white">
-            <div class="d-inline"><span>Covid-age: </span><span id="display">0</span></div>
+            <div class="d-inline mb-3"><span>Covid-age: </span><span id="display">0</span></div>
+            <hr>
+            <p class="fs-6 fw-light">If infection occurs, the probability that it will be fatal is expected to lie between <span id="lifr">0</span> per 1000 and <span id="uifr">0</span> per 1000</p>
+            <p class="fst-italic fs-6 fw-light d-none" id="below_20">For Covid-ages less than 20, the risk of fatality may be even lower than indicated</p>
           </div>
           <div class="row bg-light m-4 p-4 border border-primary rounded">
             <table id="mod_table" class="table">

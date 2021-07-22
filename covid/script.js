@@ -3249,6 +3249,405 @@ const tables = {
   },
 };
 
+const ifrValues = {
+  20: {
+    ifr: {
+      lifr: 0.04,
+      uifr: 0.1,
+    },
+  },
+  21: {
+    ifr: {
+      lifr: 0.04,
+      uifr: 0.2,
+    },
+  },
+  22: {
+    ifr: {
+      lifr: 0.05,
+      uifr: 0.2,
+    },
+  },
+  23: {
+    ifr: {
+      lifr: 0.05,
+      uifr: 0.2,
+    },
+  },
+  24: {
+    ifr: {
+      lifr: 0.06,
+      uifr: 0.2,
+    },
+  },
+  25: {
+    ifr: {
+      lifr: 0.06,
+      uifr: 0.2,
+    },
+  },
+  26: {
+    ifr: {
+      lifr: 0.07,
+      uifr: 0.3,
+    },
+  },
+  27: {
+    ifr: {
+      lifr: 0.08,
+      uifr: 0.3,
+    },
+  },
+  28: {
+    ifr: {
+      lifr: 0.08,
+      uifr: 0.3,
+    },
+  },
+  29: {
+    ifr: {
+      lifr: 0.09,
+      uifr: 0.4,
+    },
+  },
+  30: {
+    ifr: {
+      lifr: 0.1,
+      uifr: 0.4,
+    },
+  },
+  31: {
+    ifr: {
+      lifr: 0.1,
+      uifr: 0.5,
+    },
+  },
+  32: {
+    ifr: {
+      lifr: 0.1,
+      uifr: 0.5,
+    },
+  },
+  33: {
+    ifr: {
+      lifr: 0.1,
+      uifr: 0.6,
+    },
+  },
+  34: {
+    ifr: {
+      lifr: 0.2,
+      uifr: 0.6,
+    },
+  },
+  35: {
+    ifr: {
+      lifr: 0.2,
+      uifr: 0.7,
+    },
+  },
+  36: {
+    ifr: {
+      lifr: 0.2,
+      uifr: 0.8,
+    },
+  },
+  37: {
+    ifr: {
+      lifr: 0.2,
+      uifr: 0.9,
+    },
+  },
+  38: {
+    ifr: {
+      lifr: 0.2,
+      uifr: 0.9,
+    },
+  },
+  39: {
+    ifr: {
+      lifr: 0.3,
+      uifr: 1,
+    },
+  },
+  40: {
+    ifr: {
+      lifr: 0.3,
+      uifr: 1.2,
+    },
+  },
+  41: {
+    ifr: {
+      lifr: 0.3,
+      uifr: 1.3,
+    },
+  },
+  42: {
+    ifr: {
+      lifr: 0.4,
+      uifr: 1.4,
+    },
+  },
+  43: {
+    ifr: {
+      lifr: 0.4,
+      uifr: 1.6,
+    },
+  },
+  44: {
+    ifr: {
+      lifr: 0.4,
+      uifr: 1.8,
+    },
+  },
+  45: {
+    ifr: {
+      lifr: 0.5,
+      uifr: 1.9,
+    },
+  },
+  46: {
+    ifr: {
+      lifr: 0.5,
+      uifr: 2.2,
+    },
+  },
+  47: {
+    ifr: {
+      lifr: 0.6,
+      uifr: 2.4,
+    },
+  },
+  48: {
+    ifr: {
+      lifr: 0.7,
+      uifr: 2.7,
+    },
+  },
+  49: {
+    ifr: {
+      lifr: 0.7,
+      uifr: 2.9,
+    },
+  },
+  50: {
+    ifr: {
+      lifr: 0.8,
+      uifr: 3.3,
+    },
+  },
+  51: {
+    ifr: {
+      lifr: 0.9,
+      uifr: 3.6,
+    },
+  },
+  52: {
+    ifr: {
+      lifr: 1,
+      uifr: 4,
+    },
+  },
+  53: {
+    ifr: {
+      lifr: 1.1,
+      uifr: 4.4,
+    },
+  },
+  54: {
+    ifr: {
+      lifr: 1.2,
+      uifr: 4.9,
+    },
+  },
+  55: {
+    ifr: {
+      lifr: 1.4,
+      uifr: 5.4,
+    },
+  },
+  56: {
+    ifr: {
+      lifr: 1.5,
+      uifr: 6,
+    },
+  },
+  57: {
+    ifr: {
+      lifr: 1.7,
+      uifr: 6.7,
+    },
+  },
+  58: {
+    ifr: {
+      lifr: 1.9,
+      uifr: 7.4,
+    },
+  },
+  59: {
+    ifr: {
+      lifr: 2.1,
+      uifr: 8.2,
+    },
+  },
+  60: {
+    ifr: {
+      lifr: 2.3,
+      uifr: 9.1,
+    },
+  },
+  61: {
+    ifr: {
+      lifr: 2.5,
+      uifr: 10,
+    },
+  },
+  62: {
+    ifr: {
+      lifr: 2.8,
+      uifr: 11,
+    },
+  },
+  63: {
+    ifr: {
+      lifr: 3.1,
+      uifr: 12,
+    },
+  },
+  64: {
+    ifr: {
+      lifr: 3.4,
+      uifr: 14,
+    },
+  },
+  65: {
+    ifr: {
+      lifr: 3.8,
+      uifr: 15,
+    },
+  },
+  66: {
+    ifr: {
+      lifr: 4.2,
+      uifr: 17,
+    },
+  },
+  67: {
+    ifr: {
+      lifr: 4.7,
+      uifr: 19,
+    },
+  },
+  68: {
+    ifr: {
+      lifr: 5.2,
+      uifr: 21,
+    },
+  },
+  69: {
+    ifr: {
+      lifr: 5.8,
+      uifr: 23,
+    },
+  },
+  70: {
+    ifr: {
+      lifr: 6.4,
+      uifr: 26,
+    },
+  },
+  71: {
+    ifr: {
+      lifr: 7.1,
+      uifr: 28,
+    },
+  },
+  72: {
+    ifr: {
+      lifr: 7.8,
+      uifr: 31,
+    },
+  },
+  73: {
+    ifr: {
+      lifr: 8.7,
+      uifr: 35,
+    },
+  },
+  74: {
+    ifr: {
+      lifr: 9.6,
+      uifr: 38,
+    },
+  },
+  75: {
+    ifr: {
+      lifr: 11,
+      uifr: 43,
+    },
+  },
+  76: {
+    ifr: {
+      lifr: 12,
+      uifr: 47,
+    },
+  },
+  77: {
+    ifr: {
+      lifr: 13,
+      uifr: 52,
+    },
+  },
+  78: {
+    ifr: {
+      lifr: 15,
+      uifr: 58,
+    },
+  },
+  79: {
+    ifr: {
+      lifr: 16,
+      uifr: 64,
+    },
+  },
+  80: {
+    ifr: {
+      lifr: 18,
+      uifr: 71,
+    },
+  },
+  81: {
+    ifr: {
+      lifr: 20,
+      uifr: 79,
+    },
+  },
+  82: {
+    ifr: {
+      lifr: 22,
+      uifr: 88,
+    },
+  },
+  83: {
+    ifr: {
+      lifr: 24,
+      uifr: 97,
+    },
+  },
+  84: {
+    ifr: {
+      lifr: 27,
+      uifr: 108,
+    },
+  },
+  85: {
+    ifr: {
+      lifr: 30,
+      uifr: 119,
+    },
+  },
+};
+
 let imperial_toggle = document.querySelector("#imp_toggle");
 let metric_toggle = document.querySelector("#met_toggle");
 let imperial = document.querySelector("#imperial");
@@ -3269,6 +3668,8 @@ let calcBMIbtn = document.querySelector("#bmi_calc");
 let bmiDisplay = document.querySelector("#bmi_cat_disp");
 let otherInputs = document.querySelectorAll(".oth_grp input");
 let modTable = document.querySelector("#mod_table tbody");
+let lowIFR = document.querySelector("#lifr");
+let highIFR = document.querySelector("#uifr");
 let modifier = 0;
 let sexMod = 0;
 let ethMod = 0;
@@ -3309,6 +3710,7 @@ function clearAll() {
   nbc.value = "none";
   blood.value = "none";
   heart.value = "none";
+  document.querySelector("#below_20").classList.add("d-none");
   let togglRows = modTable.querySelectorAll(".tgl");
   togglRows.forEach((e) => {
     e.classList.add("d-none");
@@ -3316,7 +3718,12 @@ function clearAll() {
   otherInputs.forEach((e) => {
     e.checked = false;
   });
-  updateAge();
+  updateAge(age);
+}
+
+function updateIFR(covidAge = age) {
+  lowIFR.innerText = ifrValues[covidAge].ifr.lifr;
+  highIFR.innerText = ifrValues[covidAge].ifr.uifr;
 }
 
 function toggleRow(id) {
@@ -3352,6 +3759,11 @@ function updateAge() {
     display.innerText = `${age} - ${Math.abs(modifier)} = ${covidAge}`;
   }
   document.querySelector("#tbl_total").innerText = modifier;
+  document.querySelector("#below_20").classList.add("d-none");
+  if (covidAge < 20) {
+    document.querySelector("#below_20").classList.remove("d-none");
+  }
+  updateIFR(covidAge);
 }
 
 function calcImpBMI() {
@@ -3628,3 +4040,4 @@ for (let check of otherInputs) {
 }
 
 refreshDisplay();
+updateIFR(age);
