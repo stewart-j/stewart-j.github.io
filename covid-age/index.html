@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="./favicon.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-    <link rel="stylesheet" href="./app.css">
+    <link rel="stylesheet" href="./app.css" />
+    <script src="./tables.js"></script>
+    <script src="./classes.js"></script>
     <title>Covid-age Tool</title>
   </head>
   <body>
@@ -40,12 +42,12 @@
 
           <div id="eth_grp" class="mb-3">
             <p class="form-label fw-bold lh-lg">Ethnicity</p>
-            <select name="ethnic" id="ethnic" class="form-select">
+            <select name="ethniity" id="ethnicity" class="form-select">
               <option value="none">White</option>
-              <option value="asian">Asian or Asian British</option>
-              <option value="black">Black</option>
-              <option value="mixed">Mixed</option>
-              <option value="other">Other non-white</option>
+              <option value="eth0">Asian or Asian British</option>
+              <option value="eth1">Black</option>
+              <option value="eth2">Mixed</option>
+              <option value="eth3">Other non-white</option>
             </select>
           </div>
 
@@ -106,11 +108,11 @@
             </div>
 
             <p class="form-label fw-bold lh-lg">BMI Group</p>
-            <select name="bmi_cat" id="bmi_cat" class="form-select mb-3">
+            <select name="bmi" id="bmi" class="form-select mb-3">
               <option value="none">Less than 30</option>
-              <option value="bmi1">30 to 34.9</option>
-              <option value="bmi2">35 to 35.9</option>
-              <option value="bmi3">Greater than or equal to 40</option>
+              <option value="bmi0">30 to 34.9</option>
+              <option value="bmi1">35 to 35.9</option>
+              <option value="bmi2">Greater than or equal to 40</option>
             </select>
           </div>
 
@@ -118,8 +120,8 @@
             <p class="form-label fw-bold lh-lg">Asthma</p>
             <select name="asthma" id="asthma" class="form-select">
               <option value="none">None</option>
-              <option value="mild">Mild Asthma</option>
-              <option value="severe">Severe Asthma</option>
+              <option value="ast0">Mild Asthma</option>
+              <option value="ast1">Severe Asthma</option>
             </select>
           </div>
 
@@ -176,46 +178,49 @@
 
           <div class="oth_grp mb-3">
             <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" value="o0" id="o0" />
-              <label class="form-check-label" for="o0">Other chronic respiratory disease</label>
+              <input class="form-check-input" type="checkbox" value="oth0" id="oth0" />
+              <label class="form-check-label" for="oth0">Other chronic respiratory disease</label>
             </div>
             <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" value="o1" id="o1" />
-              <label class="form-check-label" for="o1">Hypertension</label>
+              <input class="form-check-input" type="checkbox" value="oth1" id="oth1" />
+              <label class="form-check-label" for="oth1">Hypertension</label>
             </div>
             <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" value="o2" id="o2" />
+              <input class="form-check-input" type="checkbox" value="oth2" id="oth2" />
               <label class="form-check-label" for="o2">Cerebrovascular disease</label>
             </div>
             <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" value="o3" id="o3" />
+              <input class="form-check-input" type="checkbox" value="oth3" id="oth3" />
               <label class="form-check-label" for="o3">Liver disease</label>
             </div>
             <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" value="o4" id="o4" />
-              <label class="form-check-label" for="o4">Chronic neurological disease other than stroke or dementia</label>
+              <input class="form-check-input" type="checkbox" value="oth4" id="oth4" />
+              <label class="form-check-label" for="oth4">Chronic neurological disease other than stroke or dementia</label>
             </div>
             <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" value="o5" id="o5" />
-              <label class="form-check-label" for="o5">Organ transplant recipient</label>
+              <input class="form-check-input" type="checkbox" value="oth5" id="oth5" />
+              <label class="form-check-label" for="oth5">Organ transplant recipient</label>
             </div>
             <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" value="o6" id="o6" />
-              <label class="form-check-label" for="o6">Spleen diseases</label>
+              <input class="form-check-input" type="checkbox" value="oth6" id="oth6" />
+              <label class="form-check-label" for="oth6">Spleen diseases</label>
             </div>
             <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" value="o7" id="o7" />
-              <label class="form-check-label" for="o7">Rheumatoid/lupus/psoriasis</label>
+              <input class="form-check-input" type="checkbox" value="oth7" id="oth7" />
+              <label class="form-check-label" for="oth7">Rheumatoid/lupus/psoriasis</label>
             </div>
             <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" value="o8" id="o8" />
-              <label class="form-check-label" for="o8">Other immunosuppressive condition</label>
+              <input class="form-check-input" type="checkbox" value="oth8" id="oth8" />
+              <label class="form-check-label" for="oth8">Other immunosuppressive condition</label>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="row bg-primary m-4 mt-2 p-3 pt-4 border border-primary rounded fs-3 text-white text-center">
-            <div class="d-inline mb-3"><h2>Your Covid-age: </h2><h2 class="fs-1 fw-bold" id="display">0</h2></div>
+            <div class="d-inline mb-3">
+              <h2>Your Covid-age:</h2>
+              <h2 class="fs-1 fw-bold" id="display">0</h2>
+            </div>
           </div>
         </div>
       </div>
