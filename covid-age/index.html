@@ -14,213 +14,239 @@
   <body>
     <main class="container-fluid">
       <div class="row text-center mb-2">
-        <div class="col m-3 mb-0 d-sm-none d-block">
-          <h1>Covid-age Calculator</h1>
-        </div>
-        <div class="col col m-3 mb-0 d-none d-sm-block">
+        <div class="col m-3 mb-0">
           <h1>Covid-age Calculator</h1>
         </div>
       </div>
       <div class="row">
-        <div class="col bg-light m-4 mt-2 p-4 border border-primary rounded">
-          <div id="age_grp" class="mb-3">
-            <p class="form-label fw-bold lh-lg">Please input the person’s age in years (if under 20, enter 20 and if over 75, enter 75)</p>
-            <input class="form-control" type="number" name="age" id="age" value="20" min="20" max="75" />
+        <div class="col">
+          <div class="row bg-light m-4 mt-2 p-3 pt-4 border rounded d-block d-sm-none">
+            <p>The Covid-age tool helps assess a person's vulnerability to COVID-19.</p>
+            <p>Because everyone is different, Covid-age is not an exact measure of vulnerability. Contact support below with any concerns.</p>
           </div>
-
-          <div id="sex_grp" class="mb-3">
-            <p class="form-label fw-bold lh-lg">Sex</p>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="sex" id="female" />
-              <label class="form-check-label" for="female">Female</label>
+          <div class="row bg-light m-4 mt-2 p-4 border border-primary rounded">
+            <div id="age_grp" class="mb-3">
+              <p class="form-label fw-bold lh-lg">Please input the person’s age in years (if under 20, enter 20 and if over 75, enter 75)</p>
+              <input class="form-control" type="number" name="age" id="age" value="20" min="20" max="75" />
             </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="sex" id="male" />
-              <label class="form-check-label" for="male">Male</label>
-            </div>
-          </div>
 
-          <div id="eth_grp" class="mb-3">
-            <p class="form-label fw-bold lh-lg">Ethnicity</p>
-            <select name="ethniity" id="ethnicity" class="form-select">
-              <option value="none">White</option>
-              <option value="eth0">Asian or Asian British</option>
-              <option value="eth1">Black</option>
-              <option value="eth2">Mixed</option>
-              <option value="eth3">Other non-white</option>
-            </select>
-          </div>
-
-          <div id="bmi_grp">
-            <p class="form-label fw-bold lh-lg">BMI</p>
-
-            <button id="bmi_disp" data-bs-toggle="modal" data-bs-target="#bmi_modal" class="btn btn-primary mb-3">Calculate BMI</button>
-
-            <div class="modal fade" id="bmi_modal" tabindex="-1">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">Calculate BMI</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <button id="imp_toggle" class="btn btn-primary">Imperial</button>
-                    <button id="met_toggle" class="btn btn-primary">Metric</button>
-                    <br />
-                    <div id="imperial" class="d-none">
-                      <br />
-                      <p>Height:</p>
-                      <div class="input-group mb-3">
-                        <span class="input-group-text" id="hgt_feet">Feet: </span>
-                        <input type="number" class="form-control" name="imp_feet" id="imp_feet" min="0" />
-                        <span class="input-group-text" id="hgt_feet">Inches: </span>
-                        <input type="number" class="form-control" name="imp_inch" id="imp_inch" min="0" />
-                      </div>
-                      <p>Weight:</p>
-                      <div class="input-group mb-3">
-                        <span class="input-group-text" id="wgt_stn">Stone: </span>
-                        <input type="number" class="form-control" name="imp_stn" id="imp_stn" min="0" />
-                        <span class="input-group-text" id="wgt_lbs">Pounds: </span>
-                        <input type="number" class="form-control" name="imp_lbs" id="imp_lbs" min="0" />
-                      </div>
-                    </div>
-                    <div id="metric">
-                      <br />
-                      <p>Height:</p>
-                      <div class="input-group mb-3">
-                        <span class="input-group-text" id="hgt_m">Meters: </span>
-                        <input type="number" class="form-control" name="met_m" id="met_m" min="0" step=".01" />
-                      </div>
-                      <p>Weight:</p>
-                      <div class="input-group mb-3">
-                        <span class="input-group-text" id="wgt_kg">Kilograms </span>
-                        <input type="number" class="form-control" name="met_kg" id="met_kg" min="0" step=".1" />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="modal-footer"><span>Your BMI Category is:</span><span id="bmi_cat_disp"></span></div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="bmi_calc">Calculate BMI</button>
-                  </div>
-                </div>
+            <div id="sex_grp" class="mb-3">
+              <p class="form-label fw-bold lh-lg">Sex</p>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="sex" id="female" />
+                <label class="form-check-label" for="female">Female</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="sex" id="male" />
+                <label class="form-check-label" for="male">Male</label>
               </div>
             </div>
 
-            <p class="form-label fw-bold lh-lg">BMI Group</p>
-            <select name="bmi" id="bmi" class="form-select mb-3">
-              <option value="none">Less than 30</option>
-              <option value="bmi0">30 to 34.9</option>
-              <option value="bmi1">35 to 35.9</option>
-              <option value="bmi2">Greater than or equal to 40</option>
-            </select>
-          </div>
+            <div id="eth_grp" class="mb-3">
+              <p class="form-label fw-bold lh-lg">Ethnicity</p>
+              <select name="ethnicity" id="ethnicity" class="form-select">
+                <option value="none">White</option>
+                <option value="eth0">Asian or Asian British</option>
+                <option value="eth1">Black</option>
+                <option value="eth2">Mixed</option>
+                <option value="eth3">Other non-white</option>
+              </select>
+            </div>
 
-          <div class="ath_grp mb-3">
-            <p class="form-label fw-bold lh-lg">Asthma</p>
-            <select name="asthma" id="asthma" class="form-select">
-              <option value="none">None</option>
-              <option value="ast0">Mild Asthma</option>
-              <option value="ast1">Severe Asthma</option>
-            </select>
-          </div>
+            <div id="bmi_grp">
+              <p class="form-label fw-bold lh-lg">BMI</p>
 
-          <div class="diabetes_grp mb-3">
-            <p class="form-label fw-bold lh-lg">Diabetes</p>
-            <select name="diabetes" id="diabetes" class="form-select">
-              <option value="none">None</option>
-              <option value="db0">Type 1 - HbA1c less than or equal to 58 mmol/mol in past year</option>
-              <option value="db1">Type 1 - HbA1c greater than 58 mmol/mol in past year</option>
-              <option value="db2">Type 1 - HbA1c unknown</option>
-              <option value="db3">Type 2 and other - HbA1c less than or equal to 58 mmol/mol in past year</option>
-              <option value="db4">Type 2 and other - HbA1c greater than 58 mmol/mol in past year</option>
-              <option value="db5">Type 2 and other - HbA1c unknown</option>
-            </select>
-          </div>
+              <button id="bmi_disp" data-bs-toggle="modal" data-bs-target="#bmi_modal" class="btn btn-primary mb-3">Calculate BMI</button>
 
-          <div class="kid_grp mb-3">
-            <p class="form-label fw-bold lh-lg">Chronic Kidney Disease</p>
-            <select name="kidney" id="kidney" class="form-select">
-              <option value="none">None</option>
-              <option value="kd0">Estimated GFR 30-60 mL/min</option>
-              <option value="kd1">Estimated GFR less than 30 mL/min (includes patients on dialysis)</option>
-            </select>
-          </div>
+              <div class="modal fade" id="bmi_modal" tabindex="-1">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Calculate BMI</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <button id="imp_toggle" class="btn btn-primary">Imperial</button>
+                      <button id="met_toggle" class="btn btn-primary">Metric</button>
+                      <br />
+                      <div id="imperial" class="d-none">
+                        <br />
+                        <p>Height:</p>
+                        <div class="input-group mb-3">
+                          <span class="input-group-text" id="hgt_feet">Feet: </span>
+                          <input type="number" class="form-control" name="imp_feet" id="imp_feet" min="0" />
+                          <span class="input-group-text" id="hgt_feet">Inches: </span>
+                          <input type="number" class="form-control" name="imp_inch" id="imp_inch" min="0" />
+                        </div>
+                        <p>Weight:</p>
+                        <div class="input-group mb-3">
+                          <span class="input-group-text" id="wgt_stn">Stone: </span>
+                          <input type="number" class="form-control" name="imp_stn" id="imp_stn" min="0" />
+                          <span class="input-group-text" id="wgt_lbs">Pounds: </span>
+                          <input type="number" class="form-control" name="imp_lbs" id="imp_lbs" min="0" />
+                        </div>
+                      </div>
+                      <div id="metric">
+                        <br />
+                        <p>Height:</p>
+                        <div class="input-group mb-3">
+                          <span class="input-group-text" id="hgt_m">Meters: </span>
+                          <input type="number" class="form-control" name="met_m" id="met_m" min="0" step=".01" />
+                        </div>
+                        <p>Weight:</p>
+                        <div class="input-group mb-3">
+                          <span class="input-group-text" id="wgt_kg">Kilograms </span>
+                          <input type="number" class="form-control" name="met_kg" id="met_kg" min="0" step=".1" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer"><span>Your BMI Category is:</span><span id="bmi_cat_disp"></span></div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary" id="bmi_calc">Calculate BMI</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-          <div class="nbc_grp mb-3">
-            <p class="form-label fw-bold lh-lg">Cancer other than leukaemia, lymphoma or myeloma</p>
-            <select name="nbc" id="nbc" class="form-select">
-              <option value="none">None</option>
-              <option value="nbc0">Diagnosed less than 1 year ago</option>
-              <option value="nbc1">Diagnosed 1 to 4.9 years ago</option>
-              <option value="nbc2">Diagnosed 5 years ago or longer</option>
-            </select>
-          </div>
+              <p class="form-label fw-bold lh-lg">BMI Group</p>
+              <select name="bmi" id="bmi" class="form-select mb-3">
+                <option value="none">Less than 30</option>
+                <option value="bmi0">30 to 34.9</option>
+                <option value="bmi1">35 to 35.9</option>
+                <option value="bmi2">Greater than or equal to 40</option>
+              </select>
+            </div>
 
-          <div class="blood_grp mb-3">
-            <p class="form-label fw-bold lh-lg">Leukaemia, lymphoma or myeloma</p>
-            <select name="blood" id="blood" class="form-select">
-              <option value="none">None</option>
-              <option value="bc0">Diagnosed less than 1 year ago</option>
-              <option value="bc1">Diagnosed 1 to 4.9 years ago</option>
-              <option value="bc2">Diagnosed 5 years ago or longer</option>
-            </select>
-          </div>
+            <div class="ath_grp mb-3">
+              <p class="form-label fw-bold lh-lg">Asthma</p>
+              <select name="asthma" id="asthma" class="form-select">
+                <option value="none">None</option>
+                <option value="ast0">Mild Asthma</option>
+                <option value="ast1">Severe Asthma</option>
+              </select>
+            </div>
 
-          <div class="hrt_grp mb-3">
-            <p class="form-label fw-bold lh-lg">Heart</p>
-            <select name="heart" id="heart" class="form-select">
-              <option value="none">None</option>
-              <option value="h0">Heart failure</option>
-              <option value="h1">Other chronic heart disease</option>
-            </select>
-          </div>
+            <div class="diabetes_grp mb-3">
+              <p class="form-label fw-bold lh-lg">Diabetes</p>
+              <select name="diabetes" id="diabetes" class="form-select">
+                <option value="none">None</option>
+                <option value="db0">Type 1 - HbA1c less than or equal to 58 mmol/mol in past year</option>
+                <option value="db1">Type 1 - HbA1c greater than 58 mmol/mol in past year</option>
+                <option value="db2">Type 1 - HbA1c unknown</option>
+                <option value="db3">Type 2 and other - HbA1c less than or equal to 58 mmol/mol in past year</option>
+                <option value="db4">Type 2 and other - HbA1c greater than 58 mmol/mol in past year</option>
+                <option value="db5">Type 2 and other - HbA1c unknown</option>
+              </select>
+            </div>
 
-          <div class="oth_grp mb-3">
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" value="oth0" id="oth0" />
-              <label class="form-check-label" for="oth0">Other chronic respiratory disease</label>
+            <div class="kid_grp mb-3">
+              <p class="form-label fw-bold lh-lg">Chronic Kidney Disease</p>
+              <select name="kidney" id="kidney" class="form-select">
+                <option value="none">None</option>
+                <option value="kd0">Estimated GFR 30-60 mL/min</option>
+                <option value="kd1">Estimated GFR less than 30 mL/min (includes patients on dialysis)</option>
+              </select>
             </div>
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" value="oth1" id="oth1" />
-              <label class="form-check-label" for="oth1">Hypertension</label>
+
+            <div class="nbc_grp mb-3">
+              <p class="form-label fw-bold lh-lg">Cancer other than leukaemia, lymphoma or myeloma</p>
+              <select name="nbc" id="nbc" class="form-select">
+                <option value="none">None</option>
+                <option value="nbc0">Diagnosed less than 1 year ago</option>
+                <option value="nbc1">Diagnosed 1 to 4.9 years ago</option>
+                <option value="nbc2">Diagnosed 5 years ago or longer</option>
+              </select>
             </div>
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" value="oth2" id="oth2" />
-              <label class="form-check-label" for="o2">Cerebrovascular disease</label>
+
+            <div class="blood_grp mb-3">
+              <p class="form-label fw-bold lh-lg">Leukaemia, lymphoma or myeloma</p>
+              <select name="blood" id="blood" class="form-select">
+                <option value="none">None</option>
+                <option value="bc0">Diagnosed less than 1 year ago</option>
+                <option value="bc1">Diagnosed 1 to 4.9 years ago</option>
+                <option value="bc2">Diagnosed 5 years ago or longer</option>
+              </select>
             </div>
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" value="oth3" id="oth3" />
-              <label class="form-check-label" for="o3">Liver disease</label>
+
+            <div class="hrt_grp mb-3">
+              <p class="form-label fw-bold lh-lg">Heart</p>
+              <select name="heart" id="heart" class="form-select">
+                <option value="none">None</option>
+                <option value="h0">Heart failure</option>
+                <option value="h1">Other chronic heart disease</option>
+              </select>
             </div>
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" value="oth4" id="oth4" />
-              <label class="form-check-label" for="oth4">Chronic neurological disease other than stroke or dementia</label>
-            </div>
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" value="oth5" id="oth5" />
-              <label class="form-check-label" for="oth5">Organ transplant recipient</label>
-            </div>
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" value="oth6" id="oth6" />
-              <label class="form-check-label" for="oth6">Spleen diseases</label>
-            </div>
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" value="oth7" id="oth7" />
-              <label class="form-check-label" for="oth7">Rheumatoid/lupus/psoriasis</label>
-            </div>
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" value="oth8" id="oth8" />
-              <label class="form-check-label" for="oth8">Other immunosuppressive condition</label>
+
+            <div class="oth_grp mb-3">
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" value="oth0" id="oth0" />
+                <label class="form-check-label" for="oth0">Other chronic respiratory disease</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" value="oth1" id="oth1" />
+                <label class="form-check-label" for="oth1">Hypertension</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" value="oth2" id="oth2" />
+                <label class="form-check-label" for="o2">Cerebrovascular disease</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" value="oth3" id="oth3" />
+                <label class="form-check-label" for="o3">Liver disease</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" value="oth4" id="oth4" />
+                <label class="form-check-label" for="oth4">Chronic neurological disease other than stroke or dementia</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" value="oth5" id="oth5" />
+                <label class="form-check-label" for="oth5">Organ transplant recipient</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" value="oth6" id="oth6" />
+                <label class="form-check-label" for="oth6">Spleen diseases</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" value="oth7" id="oth7" />
+                <label class="form-check-label" for="oth7">Rheumatoid/lupus/psoriasis</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" value="oth8" id="oth8" />
+                <label class="form-check-label" for="oth8">Other immunosuppressive condition</label>
+              </div>
             </div>
           </div>
         </div>
         <div class="col">
-          <div id="age_display_block" class="row sticky-top bg-primary m-4 mt-2 p-3 pt-4 border rounded fs-3 text-white text-center">
+          <div class="row bg-light m-4 mt-2 p-3 pt-4 border rounded d-none d-sm-block">
+            <p>The Covid-age tool helps assess a person's vulnerability to COVID-19. It is based on published evidence for the main identifiable risk factors - age, sex, ethnicity and health.</p>
+            <p>Because everyone is different, Covid-age is not an exact measure of vulnerability, we'll talk to you about any adjustments you need to help keep you safe.</p>
+            <p>Just fill out the questions on the form to get your Covid-age below.</p>
+          </div>
+          <div id="age_display_block" class="row bg-primary m-4 mt-2 p-3 pt-4 border rounded fs-3 text-white text-center">
             <div class="d-inline mb-3">
               <h2>Your Covid-age:</h2>
               <h2 class="fs-1 fw-bold" id="display">0</h2>
+              <hr />
+              <p class="fs-5 fw-light">Please make a note of this as the tool does not store your information.</p>
               <h3 id="covid_code" class="fs-2 fw-light d-none">/00:00:00:00:00:00/</h3>
+            </div>
+          </div>
+          <div class="row bg-light m-4 mt-2 p-3 pt-4 border rounded sticky">
+            <div class="col">
+              <p class="mb-3 fw-bold">Help for volunteers</p>
+              <p class="lh-1 mb-1">Volunteer Support Line:</p>
+              <a class="lh-1 mt-2 mb-1 d-block" href="tel:+448081963652">0808 196 3652</a>
+              <a class="lh-1 mb-1 d-block" href="mailto:VolunteerSupport@redcross.org.uk?subject=Covid-age Query">VolunteerSupport@redcross.org.uk</a>
+              <p class="lh-1 mb-1">Mon - Fri, 10am - 5pm</p>
+            </div>
+            <div class="col mt-3 mt-sm-0">
+              <p class="mb-3 fw-bold">Help for staff</p>
+              <p class="lh-1 mb-1">People Support Line:</p>
+              <a class="lh-1 mt-2 mb-1 d-block" href="tel:+441418475330">0141 847 5330</a>
+              <a class="lh-1 mb-1 d-block" href="mailto:PeopleSupport@redcross.org.uk?subject=Covid-age Query">PeopleSupport@redcross.org.uk</a>
+              <p class="lh-1 mb-1">Mon - Fri, 9:30am - 5:30pm</p>
             </div>
           </div>
         </div>

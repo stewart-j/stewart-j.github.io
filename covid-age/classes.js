@@ -25,7 +25,7 @@ class Person {
       { modifier: 0, value: "none" },
       { modifier: 0, value: "none" },
     ];
-    //standard event handler function for most form imputs
+    //standard event handler function for most form inputs
     this.handlerObj = {
       handleEvent: (event) => {
         let modString = `${event.target.id}`;
@@ -272,7 +272,7 @@ class Person {
   }
 
   calcModValues() {
-    //hardcode sex because it doesnt vary with age
+    //hard code sex because it doesn't vary with age
     if (this.sex.value == "female") {
       this.sex.modifier = -5;
     } else {
@@ -329,7 +329,7 @@ class Person {
   }
 
   ageListener() {
-    //specialised listener for age changes (this isnt elegant but it sure is easier)
+    //specialised listener for age changes (this isn't elegant but it sure is easier)
     document.querySelector("#age").addEventListener("change", (e) => {
       if (e.target.value < 20) {
         e.target.value = 20;
