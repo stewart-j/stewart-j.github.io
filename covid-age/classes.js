@@ -230,7 +230,7 @@ class Person {
 
   randomise() {
     //randomises all options
-    this.age = this.getRandInt(35) + 20;
+    this.changeAge(this.getRandInt(55) + 20);
     document.querySelector("#age").value = this.age;
     if (this.getRandInt(1)) {
       document.querySelector("#male").checked = true;
