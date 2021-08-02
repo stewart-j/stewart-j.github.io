@@ -331,6 +331,12 @@ class Person {
   ageListener() {
     //specialised listener for age changes (this isnt elegant but it sure is easier)
     document.querySelector("#age").addEventListener("change", (e) => {
+      if (e.target.value < 20) {
+        e.target.value = 20;
+      }
+      if (e.target.value > 75) {
+        e.target.value = 75;
+      }
       this.changeAge(Number(e.target.value));
       this.refreshCovidAge();
     });
