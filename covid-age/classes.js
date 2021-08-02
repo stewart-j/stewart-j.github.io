@@ -337,6 +337,8 @@ class Person {
       if (e.target.value > 75) {
         e.target.value = 75;
       }
+      e.target.value = Math.floor(e.target.value);
+
       this.changeAge(Number(e.target.value));
       this.refreshCovidAge();
     });
