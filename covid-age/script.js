@@ -41,7 +41,8 @@ document.addEventListener("keydown", function (e) {
   if (e.altKey && e.key === "g") {
     document.querySelector("#covid_code").classList.toggle("d-none");
     document.querySelector("#age_display_block").classList.toggle("bg-primary");
-    document.querySelector("#age_display_block").classList.toggle("bg-info");
+    document.querySelector("#age_display_block").classList.toggle("bg-success");
+    document.querySelector("#dev_mode").classList.toggle("d-none");
   }
 });
 

@@ -15,16 +15,19 @@
     <main class="container-fluid">
       <div class="row text-center mb-2">
         <div class="col m-3 mb-0">
-          <h1>Covid-age Calculator</h1>
+          <h1 class="pb-2">Covid-age Calculator <span id="dev_mode" class="d-none">(Dev Mode)</span></h1>
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <div class="row bg-light m-4 mt-2 p-3 pt-4 border rounded d-block d-sm-none">
-            <p>The Covid-age tool helps assess a person's vulnerability to COVID-19.</p>
-            <p>Because everyone is different, Covid-age is not an exact measure of vulnerability or a clinical/diagnostic tool. Contact support below with any concerns.</p>
+          <div class="card text-dark bg-light m-4 mt-2 d-block d-sm-none">
+            <div class="card-header fw-bold">Information</div>
+            <div class="card-body">
+              <p class="card-text">This Covid-age tool helps assess a person's vulnerability to COVID-19.</p>
+              <p class="card-text">Because everyone is different, Covid-age is not an exact measure of vulnerability or a clinical/diagnostic tool. Contact support below with any concerns.</p>
+            </div>
           </div>
-          <div class="row bg-light m-4 mt-2 p-4 border border-primary rounded">
+          <div class="row bg-light m-4 mt-2 p-4 border rounded">
             <div id="age_grp" class="mb-3">
               <p class="form-label fw-bold lh-lg">Please input the person’s age in years (if under 20, enter 20 and if over 75, enter 75)</p>
               <input class="form-control" type="number" name="age" id="age" value="20" min="20" max="75" />
@@ -209,7 +212,7 @@
               </div>
               <div class="form-check mb-2">
                 <input class="form-check-input" type="checkbox" value="oth7" id="oth7" />
-                <label class="form-check-label" for="oth7">Rheumatoid/lupus/psoriasis</label>
+                <label class="form-check-label" for="oth7">Rheumatoid Arthritis, Lupus or Psoriasis</label>
               </div>
               <div class="form-check mb-2">
                 <input class="form-check-input" type="checkbox" value="oth8" id="oth8" />
@@ -219,39 +222,58 @@
           </div>
         </div>
         <div class="col">
-          <div class="row bg-light m-4 mt-2 p-3 pt-4 border rounded d-none d-sm-block">
-            <p>The Covid-age tool helps assess a person's vulnerability to COVID-19. It is based on published evidence for the main identifiable risk factors - age, sex, ethnicity and health.</p>
-            <p>Because everyone is different, Covid-age is not an exact measure of vulnerability or a clinical/diagnostic tool for medical use, we'll talk to you about any adjustments you need to help keep you safe.</p>
-            <p>Just fill out the questions on the form to get your Covid-age below.</p>
-          </div>
-          <div id="age_display_block" class="row bg-primary m-4 mt-2 p-3 pt-4 border rounded fs-3 text-white text-center">
-            <div class="d-inline mb-3">
-              <h2>Your Covid-age:</h2>
-              <h2 class="fs-1 fw-bold" id="display">0</h2>
-              <hr />
-              <p class="fs-5 fw-light">Please make a note of this as the tool does not store your information.</p>
-              <h3 id="covid_code" class="fs-2 fw-light d-none">/00:00:00:00:00:00/</h3>
+          <div class="card text-dark bg-light m-4 mt-2 d-none d-sm-block">
+            <div class="card-header fw-bold">Information</div>
+            <div class="card-body">
+              <p class="card-text">This Covid-age tool helps assess a person's vulnerability to COVID-19. It is based on published evidence for the main identifiable risk factors - age, sex, ethnicity and health.</p>
+              <p class="card-text">Because everyone is different, Covid-age is not an exact measure of vulnerability or a clinical/diagnostic tool for medical use, we'll talk to you about any adjustments you need to help keep you safe.</p>
+              <p class="card-text">Just fill out the questions on the form and view your Covid-age below.</p>
             </div>
           </div>
-          <div class="row bg-light m-4 mt-2 p-3 pt-4 border rounded sticky">
-            <div class="col">
-              <p class="mb-3 fw-bold">Help for volunteers</p>
-              <p class="lh-1 mb-1">Volunteer Support Line:</p>
-              <a class="lh-1 mt-2 mb-1 d-block" href="tel:+448081963652">0808 196 3652</a>
-              <a class="lh-1 mb-1 d-block" href="mailto:VolunteerSupport@redcross.org.uk?subject=Covid-age Query">VolunteerSupport@redcross.org.uk</a>
-              <p class="lh-1 mb-1">Mon - Fri, 10am - 5pm</p>
+
+          <div id="age_display_block" class="card m-4 bg-primary text-white text-center">
+            <div class="card-header p-2 pt-3 fs-3"><h2>Your Covid-age:</h2></div>
+            <div class="card-body"><h2 class="fs-1 fw-bold p-2 pt-0" id="display">0</h2></div>
+            <div class="card-footer">
+              <p class="fs-5 fw-light pt-2">Please make a note of this as the tool does not store your information.</p>
+              <h3 id="covid_code" class="fs-2 fw-light d-none pb-3">/00:00:00:00:00:00/</h3>
             </div>
-            <div class="col mt-3 mt-sm-0">
-              <p class="mb-3 fw-bold">Help for staff</p>
-              <p class="lh-1 mb-1">People Support Line:</p>
-              <a class="lh-1 mt-2 mb-1 d-block" href="tel:+441418475330">0141 847 5330</a>
-              <a class="lh-1 mb-1 d-block" href="mailto:PeopleSupport@redcross.org.uk?subject=Covid-age Query">PeopleSupport@redcross.org.uk</a>
-              <p class="lh-1 mb-1">Mon - Fri, 9:30am - 5:30pm</p>
+          </div>
+
+          <div class="card-group m-4">
+            <div class="card text-dark bg-light">
+              <div class="card-header fw-bold">Help for volunteers</div>
+              <div class="card-body">
+                <p class="card-text mb-1">Volunteer Support Line:</p>
+                <a class="card-text mb-3 d-block" href="tel:+448081963652">0808 196 3652</a>
+                <p class="card-text mb-1">Contact email:</p>
+                <a class="card-text mb-1 d-block" href="mailto:VolunteerSupport@redcross.org.uk?subject=Covid-age Query">VolunteerSupport@redcross.org.uk</a>
+                <small class="card-text mb-1 text-muted">Mon - Fri, 10am - 5pm</small>
+              </div>
+            </div>
+            <div class="card text-dark bg-light">
+              <div class="card-header fw-bold">Help for staff</div>
+              <div class="card-body">
+                <p class="card-text mb-1">People Support Line:</p>
+                <a class="card-text mb-3 d-block" href="tel:+441418475330">0141 847 5330</a>
+                <p class="card-text mb-1">Contact email:</p>
+                <a class="card-text mb-1 d-block" href="mailto:PeopleSupport@redcross.org.uk?subject=Covid-age Query">PeopleSupport@redcross.org.uk</a>
+                <small class="card-text mb-1 text-muted">Mon - Fri, 9:30am - 5:30pm</small>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </main>
+    <footer>
+      <div class="container text-center text-muted">
+        <hr />
+        <small class="pb-4">
+          Contact <a href="mailto:jasonstewart@redcross.org.uk?subject=[COVID-TOOL]" class="link-dark">jasonstewart@redcross.org.uk</a> for issues with site | Risk modifiers and values derived and implemented from data provided by
+          <a href="https://alama.org.uk/wp-content/uploads/2021/02/Methods-at-201211-2.pdf" class="link-dark">ALAMA.</a>
+        </small>
+      </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="./script.js"></script>
   </body>

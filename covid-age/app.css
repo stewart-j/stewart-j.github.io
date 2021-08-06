@@ -1,8 +1,9 @@
 #display {
-  font-size: 7.5em !important;
+  font-size: 12em !important;
 }
 
 #covid_code {
+  font-size: 2em;
   letter-spacing: 5px;
   opacity: 0.5;
 }
