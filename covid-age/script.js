@@ -29,6 +29,11 @@ for (let check of document.querySelectorAll(".oth_grp input")) {
   user.otherListener(check);
 }
 
+let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl);
+});
+
 //testing functions
 
 document.addEventListener("keydown", function (e) {
