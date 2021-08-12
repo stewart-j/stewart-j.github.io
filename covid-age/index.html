@@ -35,7 +35,25 @@
             </div>
 
             <div id="sex_grp" class="mb-3">
-              <p class="mb-2 fw-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Sex in this context is your biological sex as recorded at birth">Sex</p>
+              <p class="mb-2 fw-bold">
+                Sex
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-question-circle"
+                  viewBox="0 0 16 16"
+                  data-bs-toggle="popover"
+                  data-bs-placement="right"
+                  data-bs-content="Sex in this context is your biological sex as recorded at birth"
+                >
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                  <path
+                    d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"
+                  />
+                </svg>
+              </p>
               <div class="form-check-inline"><input class="form-check-input" type="radio" name="sex" id="female" /> <label class="form-check-label" for="female"> Female</label></div>
               <div class="form-check-inline"><input class="form-check-input" type="radio" name="sex" id="male" /> <label class="form-check-label" for="male"> Male</label></div>
             </div>
@@ -80,7 +98,7 @@
             <div class="row mb-0 mb-md-3 pe-0">
               <div class="col-sm-12 col-md-6 mb-3 mb-md-0">
                 <div class="ath_grp">
-                  <p class="form-label fw-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Asthma is classed as severe if treatment with oral steroids has been required within the last 12 months">Asthma</p>
+                  <p class="form-label fw-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Asthma is classed as severe if treatment with oral steroids has been required within the last 12 months">Asthma<sup>†</sup></p>
                   <select name="asthma" id="asthma" class="form-select">
                     <option value="none">None</option>
                     <option value="ast0">Mild Asthma</option>
@@ -130,7 +148,7 @@
             <div class="row mb-0 mb-md-3 pe-0">
               <div class="col-sm-12 col-md-6 mb-3 mb-md-0">
                 <div class="blood_grp">
-                  <p class="form-label fw-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Including leukaemia, lymphoma or myeloma">Cancer: blood related</p>
+                  <p class="form-label fw-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Including leukaemia, lymphoma or myeloma">Cancer: blood related<sup>†</sup></p>
                   <select name="blood" id="blood" class="form-select">
                     <option value="none">None</option>
                     <option value="bc0">Diagnosed less than 1 year ago</option>
@@ -141,7 +159,7 @@
               </div>
               <div class="col-sm-12 col-md-6 mb-3 mb-md-0">
                 <div class="nbc_grp">
-                  <p class="form-label fw-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Not including leukaemia, lymphoma or myeloma">Cancer: non-blood related</p>
+                  <p class="form-label fw-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Not including leukaemia, lymphoma or myeloma">Cancer: non-blood related<sup>†</sup></p>
                   <select name="nbc" id="nbc" class="form-select">
                     <option value="none">None</option>
                     <option value="nbc0">Diagnosed less than 1 year ago</option>
@@ -178,7 +196,7 @@
                   data-bs-toggle="tooltip"
                   data-bs-placement="right"
                   title="Includes motor neurone disease, myasthenia gravis, multiple sclerosis, Parkinson's disease, cerebral palsy, quadriplegia, hemiplegia and progressive cerebellar disease"
-                  >Chronic neurological disease other than stroke or dementia</label
+                  >Chronic neurological disease other than stroke or dementia<sup>†</sup></label
                 >
               </div>
               <div class="form-check mb-2">
@@ -187,7 +205,7 @@
               </div>
               <div class="form-check mb-2">
                 <input class="form-check-input" type="checkbox" value="oth6" id="oth6" />
-                <label class="form-check-label" for="oth6" data-bs-toggle="tooltip" data-bs-placement="right" title="Includes splenectomy, or spleen dysfunction (e.g. from sickle cell disease)">Spleen diseases</label>
+                <label class="form-check-label" for="oth6" data-bs-toggle="tooltip" data-bs-placement="right" title="Includes splenectomy, or spleen dysfunction (e.g. from sickle cell disease)">Spleen diseases<sup>†</sup></label>
               </div>
               <div class="form-check mb-2">
                 <input class="form-check-input" type="checkbox" value="oth7" id="oth7" />
@@ -201,7 +219,7 @@
                   data-bs-toggle="tooltip"
                   data-bs-placement="right"
                   title="Includes HIV, conditions inducing permanent immunodeficiency (ever diagnosed), aplastic anaemia, and temporary immunodeficiency recorded within the past year. Does not include treatment with immunosuppressant medication"
-                  >Other immunosuppressive condition</label
+                  >Other immunosuppressive condition<sup>†</sup></label
                 >
               </div>
             </div>
@@ -309,7 +327,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <p>The ethnic background categories include the following groups (derived from NHS clinical coding):</p>
+              <p>The ethnic background categories include the following groups:</p>
               <hr />
 
               <ul class="ps-2 list-unstyled lh-lg">
