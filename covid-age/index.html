@@ -35,7 +35,7 @@
             </div>
 
             <div id="sex_grp" class="mb-3">
-              <p class="mb-2 fw-bold">Sex</p>
+              <p class="mb-2 fw-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Sex in this context is your biological sex as recorded at birth">Sex</p>
               <div class="form-check-inline"><input class="form-check-input" type="radio" name="sex" id="female" /> <label class="form-check-label" for="female"> Female</label></div>
               <div class="form-check-inline"><input class="form-check-input" type="radio" name="sex" id="male" /> <label class="form-check-label" for="male"> Male</label></div>
             </div>
@@ -43,13 +43,21 @@
             <div class="row mb-0 mb-md-3 pe-0">
               <div class="col-sm-12 col-md-6 mb-3 mb-md-0">
                 <div id="eth_grp" class="">
-                  <label for="ethnicity" class="form-label mb-2 fw-bold">Ethnicity</label>
+                  <label for="ethnicity" class="form-label mb-2 fw-bold"
+                    >Ethnic background
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16" data-bs-toggle="modal" data-bs-target="#ethnicModal">
+                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                      <path
+                        d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"
+                      />
+                    </svg>
+                  </label>
                   <select name="ethnicity" id="ethnicity" class="form-select">
-                    <option value="none">White</option>
-                    <option value="eth0">Asian or Asian British</option>
-                    <option value="eth1">Black</option>
-                    <option value="eth2">Mixed</option>
-                    <option value="eth3">Other non-white</option>
+                    <option value="none">Any White background</option>
+                    <option value="eth0">Any South Asian background</option>
+                    <option value="eth1">Any Black background</option>
+                    <option value="eth2">Any Mixed background</option>
+                    <option value="eth3">Any Other background</option>
                   </select>
                 </div>
               </div>
@@ -288,6 +296,64 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               <button type="button" class="btn btn-primary" id="bmi_calc">Calculate BMI</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="ethnicModal" tabindex="-1" aria-labelledby="ethnicModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="ethnicModalLabel">Ethnic background</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>The ethnic background categories include the following groups (derived from NHS clinical coding):</p>
+              <hr />
+
+              <ul class="ps-2 list-unstyled lh-lg">
+                <li class="fw-bold">Any White background</li>
+                <li class="ps-2">White British</li>
+                <li class="ps-2">White Irish</li>
+                <li class="ps-2">Any other White background</li>
+              </ul>
+              <hr />
+
+              <ul class="ps-2 list-unstyled lh-lg">
+                <li class="fw-bold">Any South Asian background</li>
+                <li class="ps-2">Indian</li>
+                <li class="ps-2">Pakistani</li>
+                <li class="ps-2">Bangladeshi</li>
+                <li class="ps-2">Any other South Asian background</li>
+              </ul>
+              <hr />
+
+              <ul class="ps-2 list-unstyled lh-lg">
+                <li class="fw-bold">Any Black background</li>
+                <li class="ps-2">Black Caribbean</li>
+                <li class="ps-2">Black African</li>
+                <li class="ps-2">Any other Black background</li>
+              </ul>
+              <hr />
+
+              <ul class="ps-2 list-unstyled lh-lg">
+                <li class="fw-bold">Any Mixed background</li>
+                <li class="ps-2">White and Black Caribbean</li>
+                <li class="ps-2">White and Black African</li>
+                <li class="ps-2">White and South Asian</li>
+                <li class="ps-2">Any other Mixed background</li>
+              </ul>
+              <hr />
+
+              <ul class="ps-2 list-unstyled lh-lg">
+                <li class="fw-bold">Any Other background</li>
+                <li class="ps-2">Chinese</li>
+                <li class="ps-2">Any other ethnic background</li>
+              </ul>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
