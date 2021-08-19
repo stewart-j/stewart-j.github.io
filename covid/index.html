@@ -6,231 +6,230 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="./favicon.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <script src="./tables.js"></script>
+    <script src="./classes.js"></script>
     <title>Covid-age Tool</title>
   </head>
   <body>
     <main class="container-fluid">
-      <div class="row">
-        <div class="col m-3 mb-0 d-sm-none d-block">
-          <div class="alert alert-info">
-            <p>
-              Ensure you understand the use of this tool before use, visit <a href="https://alama.org.uk/covid-19-medical-risk-assessment/" class="alert-link">https://alama.org.uk/covid-19-medical-risk-assessment/</a> for further details.
-            </p>
-          </div>
-        </div>
-        <div class="col col m-3 mb-0 d-none d-sm-block">
-          <div class="alert alert-info">
-            <p>
-              Details of the Covid-age project, evidence-base and warnings are published at
-              <a href="https://alama.org.uk/covid-19-medical-risk-assessment/" class="alert-link">https://alama.org.uk/covid-19-medical-risk-assessment/</a>
-            </p>
-            <p>Users are strongly advised to read the guidance on the ALAMA website before using the Covid-age tool.</p>
-            <p>The evidence reviewed allows calculation of indicative Covid-age for adults aged 20-75. Clinical judgement should be used to adjust the Covid-age value for workers outside this age range.</p>
-          </div>
+      <div class="col m-4 mb-0">
+        <div class="alert alert-info">
+          <p>
+            Details of the Covid-age project, evidence-base and warnings are published at
+            <a href="https://alama.org.uk/covid-19-medical-risk-assessment/" class="alert-link">https://alama.org.uk/covid-19-medical-risk-assessment/</a>
+          </p>
+          <p>Users are strongly advised to read the guidance on the ALAMA website before using the Covid-age tool.</p>
+          <p>The evidence reviewed allows calculation of indicative Covid-age for adults aged 20-75. Clinical judgement should be used to adjust the Covid-age value for workers outside this age range.</p>
         </div>
       </div>
       <div class="row">
-        <div class="col bg-light m-4 mt-2 p-4 border border-primary rounded">
-          <div id="age_grp" class="mb-3">
-            <p class="form-label fw-bold lh-lg">Please input the person’s age in years (if under 20, enter 20 and if over 75 enter 75)</p>
-            <input class="form-control" type="number" name="age" id="age" value="20" min="20" max="75" />
-          </div>
-
-          <div id="sex_grp" class="mb-3">
-            <p class="form-label fw-bold lh-lg">Sex</p>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="sex" id="female" />
-              <label class="form-check-label" for="female">Female</label>
+        <div class="col">
+          <div class="row bg-light m-4 mt-2 p-2 pt-3 border rounded">
+            <div id="age_grp" class="mb-3">
+              <label class="form-label mb-2 fw-bold" for="age">Current age</label>
+              <input class="form-control" type="number" name="age" id="age" value="20" min="20" max="75" />
+              <div id="ageHelp" class="form-text">If below 20, enter 20. If over 75, enter 75.</div>
             </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="sex" id="male" />
-              <label class="form-check-label" for="male">Male</label>
+
+            <div id="sex_grp" class="mb-3">
+              <p class="mb-2 fw-bold">
+                Sex
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-question-circle"
+                  viewBox="0 0 16 16"
+                  data-bs-toggle="popover"
+                  data-bs-placement="right"
+                  data-bs-content="Sex in this context is your biological sex as recorded at birth"
+                >
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                  <path
+                    d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"
+                  />
+                </svg>
+              </p>
+              <div class="form-check-inline"><input class="form-check-input" type="radio" name="sex" id="female" /> <label class="form-check-label" for="female"> Female</label></div>
+              <div class="form-check-inline"><input class="form-check-input" type="radio" name="sex" id="male" /> <label class="form-check-label" for="male"> Male</label></div>
             </div>
-          </div>
 
-          <div id="eth_grp" class="mb-3">
-            <p class="form-label fw-bold lh-lg">Ethnicity</p>
-            <select name="ethnic" id="ethnic" class="form-select">
-              <option value="none">White</option>
-              <option value="asian">Asian or Asian British</option>
-              <option value="black">Black</option>
-              <option value="mixed">Mixed</option>
-              <option value="other">Other non-white</option>
-            </select>
-          </div>
-
-          <div id="bmi_grp">
-            <p class="form-label fw-bold lh-lg">BMI</p>
-
-            <button id="bmi_disp" data-bs-toggle="modal" data-bs-target="#bmi_modal" class="btn btn-primary mb-3">Calculate BMI</button>
-
-            <div class="modal fade" id="bmi_modal" tabindex="-1">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">Calculate BMI</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <button id="imp_toggle" class="btn btn-primary">Imperial</button>
-                    <button id="met_toggle" class="btn btn-primary">Metric</button>
-                    <br />
-                    <div id="imperial" class="d-none">
-                      <br />
-                      <p>Height:</p>
-                      <div class="input-group mb-3">
-                        <span class="input-group-text" id="hgt_feet">Feet: </span>
-                        <input type="number" class="form-control" name="imp_feet" id="imp_feet" min="0" />
-                        <span class="input-group-text" id="hgt_feet">Inches: </span>
-                        <input type="number" class="form-control" name="imp_inch" id="imp_inch" min="0" />
-                      </div>
-                      <p>Weight:</p>
-                      <div class="input-group mb-3">
-                        <span class="input-group-text" id="wgt_stn">Stone: </span>
-                        <input type="number" class="form-control" name="imp_stn" id="imp_stn" min="0" />
-                        <span class="input-group-text" id="wgt_lbs">Pounds: </span>
-                        <input type="number" class="form-control" name="imp_lbs" id="imp_lbs" min="0" />
-                      </div>
-                    </div>
-                    <div id="metric">
-                      <br />
-                      <p>Height:</p>
-                      <div class="input-group mb-3">
-                        <span class="input-group-text" id="hgt_m">Meters: </span>
-                        <input type="number" class="form-control" name="met_m" id="met_m" min="0" step=".01" />
-                      </div>
-                      <p>Weight:</p>
-                      <div class="input-group mb-3">
-                        <span class="input-group-text" id="wgt_kg">Kilograms </span>
-                        <input type="number" class="form-control" name="met_kg" id="met_kg" min="0" step=".1" />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="modal-footer"><span>Your BMI Category is:</span><span id="bmi_cat_disp"></span></div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="bmi_calc">Calculate BMI</button>
-                  </div>
+            <div class="row mb-0 mb-md-3 pe-0">
+              <div class="col-sm-12 col-md-6 mb-3 mb-md-0">
+                <div id="eth_grp" class="">
+                  <label for="ethnicity" class="form-label mb-2 fw-bold"
+                    >Ethnic background
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16" data-bs-toggle="modal" data-bs-target="#ethnicModal">
+                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                      <path
+                        d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"
+                      />
+                    </svg>
+                  </label>
+                  <select name="ethnicity" id="ethnicity" class="form-select">
+                    <option value="none">Any White background</option>
+                    <option value="eth0">Any South Asian background</option>
+                    <option value="eth1">Any Black background</option>
+                    <option value="eth2">Any Mixed background</option>
+                    <option value="eth3">Any Other background</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6 mb-3 mb-md-0">
+                <p class="form-label mb-2 fw-bold">BMI Group</p>
+                <div id="bmi_grp" class="input-group">
+                  <button class="btn btn-primary" type="button" id="bmi_disp" data-bs-toggle="modal" data-bs-target="#bmi_modal">Calculate</button>
+                  <select name="bmi" id="bmi" class="form-select">
+                    <option value="none">Less than 30</option>
+                    <option value="bmi0">30 to 34.9</option>
+                    <option value="bmi1">35 to 35.9</option>
+                    <option value="bmi2">Greater than or equal to 40</option>
+                  </select>
                 </div>
               </div>
             </div>
 
-            <p class="form-label fw-bold lh-lg">BMI Group</p>
-            <select name="bmi_cat" id="bmi_cat" class="form-select mb-3">
-              <option value="none">Less than 30</option>
-              <option value="bmi1">30 to 34.9</option>
-              <option value="bmi2">35 to 35.9</option>
-              <option value="bmi3">Greater than or equal to 40</option>
-            </select>
-          </div>
+            <div class="row mb-0 mb-md-3 pe-0">
+              <div class="col-sm-12 col-md-6 mb-3 mb-md-0">
+                <div id="ast_grp">
+                  <p class="form-label fw-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Asthma is classed as severe if treatment with oral steroids has been required within the last 12 months">Asthma<sup>†</sup></p>
+                  <select name="asthma" id="asthma" class="form-select">
+                    <option value="none">None</option>
+                    <option value="ast0">Mild Asthma</option>
+                    <option value="ast1">Severe Asthma</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6 mb-3 mb-md-0">
+                <div id="db_grp">
+                  <p class="form-label fw-bold">Diabetes</p>
+                  <select name="diabetes" id="diabetes" class="form-select">
+                    <option value="none">None</option>
+                    <option value="db0">Type 1 - HbA1c less than or equal to 58 mmol/mol in past year</option>
+                    <option value="db1">Type 1 - HbA1c greater than 58 mmol/mol in past year</option>
+                    <option value="db2">Type 1 - HbA1c unknown</option>
+                    <option value="db3">Type 2 and other - HbA1c less than or equal to 58 mmol/mol in past year</option>
+                    <option value="db4">Type 2 and other - HbA1c greater than 58 mmol/mol in past year</option>
+                    <option value="db5">Type 2 and other - HbA1c unknown</option>
+                  </select>
+                </div>
+              </div>
+            </div>
 
-          <div class="ath_grp mb-3">
-            <p class="form-label fw-bold lh-lg">Asthma</p>
-            <select name="asthma" id="asthma" class="form-select">
-              <option value="none">None</option>
-              <option value="mild">Mild Asthma</option>
-              <option value="severe">Severe Asthma</option>
-            </select>
-          </div>
+            <div class="row mb-0 mb-md-3 pe-0">
+              <div class="col-sm-12 col-md-6 mb-3 mb-md-0">
+                <div id="kd_grp">
+                  <p class="form-label fw-bold">Chronic kidney disease</p>
+                  <select name="kidney" id="kidney" class="form-select">
+                    <option value="none">None</option>
+                    <option value="kd0">Estimated GFR 30-60 mL/min</option>
+                    <option value="kd1">Estimated GFR less than 30 mL/min (includes patients on dialysis)</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6 mb-3 mb-md-0">
+                <div id="h_grp">
+                  <p class="form-label fw-bold">Heart conditions</p>
+                  <select name="heart" id="heart" class="form-select">
+                    <option value="none">None</option>
+                    <option value="h0">Heart failure</option>
+                    <option value="h1">Other chronic heart disease</option>
+                  </select>
+                </div>
+              </div>
+            </div>
 
-          <div class="diabetes_grp mb-3">
-            <p class="form-label fw-bold lh-lg">Diabetes</p>
-            <select name="diabetes" id="diabetes" class="form-select">
-              <option value="none">None</option>
-              <option value="db0">Type 1 - HbA1c less than or equal to 58 mmol/mol in past year</option>
-              <option value="db1">Type 1 - HbA1c greater than 58 mmol/mol in past year</option>
-              <option value="db2">Type 1 - HbA1c unknown</option>
-              <option value="db3">Type 2 and other - HbA1c less than or equal to 58 mmol/mol in past year</option>
-              <option value="db4">Type 2 and other - HbA1c greater than 58 mmol/mol in past year</option>
-              <option value="db5">Type 2 and other - HbA1c unknown</option>
-            </select>
-          </div>
+            <div class="row mb-0 mb-md-3 pe-0">
+              <div class="col-sm-12 col-md-6 mb-3 mb-md-0">
+                <div id="bc_grp">
+                  <p class="form-label fw-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Including leukaemia, lymphoma or myeloma">Cancer: blood related<sup>†</sup></p>
+                  <select name="blood" id="blood" class="form-select">
+                    <option value="none">None</option>
+                    <option value="bc0">Diagnosed less than 1 year ago</option>
+                    <option value="bc1">Diagnosed 1 to 4.9 years ago</option>
+                    <option value="bc2">Diagnosed 5 years ago or longer</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6 mb-3 mb-md-0">
+                <div id="nbc_grp">
+                  <p class="form-label fw-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Not including leukaemia, lymphoma or myeloma">Cancer: non-blood related<sup>†</sup></p>
+                  <select name="nbc" id="nbc" class="form-select">
+                    <option value="none">None</option>
+                    <option value="nbc0">Diagnosed less than 1 year ago</option>
+                    <option value="nbc1">Diagnosed 1 to 4.9 years ago</option>
+                    <option value="nbc2">Diagnosed 5 years ago or longer</option>
+                  </select>
+                </div>
+              </div>
+            </div>
 
-          <div class="kid_grp mb-3">
-            <p class="form-label fw-bold lh-lg">Chronic Kidney Disease</p>
-            <select name="kidney" id="kidney" class="form-select">
-              <option value="none">None</option>
-              <option value="kd0">Estimated GFR 30-60 mL/min</option>
-              <option value="kd1">Estimated GFR less than 30 mL/min (includes patients on dialysis)</option>
-            </select>
-          </div>
-
-          <div class="nbc_grp mb-3">
-            <p class="form-label fw-bold lh-lg">Cancer other than leukaemia, lymphoma or myeloma</p>
-            <select name="nbc" id="nbc" class="form-select">
-              <option value="none">None</option>
-              <option value="nbc0">Diagnosed less than 1 year ago</option>
-              <option value="nbc1">Diagnosed 1 to 4.9 years ago</option>
-              <option value="nbc2">Diagnosed 5 years ago or longer</option>
-            </select>
-          </div>
-
-          <div class="blood_grp mb-3">
-            <p class="form-label fw-bold lh-lg">Leukaemia, lymphoma or myeloma</p>
-            <select name="blood" id="blood" class="form-select">
-              <option value="none">None</option>
-              <option value="bc0">Diagnosed less than 1 year ago</option>
-              <option value="bc1">Diagnosed 1 to 4.9 years ago</option>
-              <option value="bc2">Diagnosed 5 years ago or longer</option>
-            </select>
-          </div>
-
-          <div class="hrt_grp mb-3">
-            <p class="form-label fw-bold lh-lg">Heart</p>
-            <select name="heart" id="heart" class="form-select">
-              <option value="none">None</option>
-              <option value="h0">Heart failure</option>
-              <option value="h1">Other chronic heart disease</option>
-            </select>
-          </div>
-
-          <div class="oth_grp mb-3">
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" value="o0" id="o0" />
-              <label class="form-check-label" for="o0">Other chronic respiratory disease</label>
-            </div>
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" value="o1" id="o1" />
-              <label class="form-check-label" for="o1">Hypertension</label>
-            </div>
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" value="o2" id="o2" />
-              <label class="form-check-label" for="o2">Cerebrovascular disease</label>
-            </div>
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" value="o3" id="o3" />
-              <label class="form-check-label" for="o3">Liver disease</label>
-            </div>
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" value="o4" id="o4" />
-              <label class="form-check-label" for="o4">Chronic neurological disease other than stroke or dementia</label>
-            </div>
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" value="o5" id="o5" />
-              <label class="form-check-label" for="o5">Organ transplant recipient</label>
-            </div>
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" value="o6" id="o6" />
-              <label class="form-check-label" for="o6">Spleen diseases</label>
-            </div>
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" value="o7" id="o7" />
-              <label class="form-check-label" for="o7">Rheumatoid/lupus/psoriasis</label>
-            </div>
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" value="o8" id="o8" />
-              <label class="form-check-label" for="o8">Other immunosuppressive condition</label>
+            <div id="oth_grp" class="mb-3">
+              <p class="form-label fw-bold">Other conditions</p>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" value="oth0" id="oth0" />
+                <label class="form-check-label" for="oth0">Other chronic respiratory disease</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" value="oth1" id="oth1" />
+                <label class="form-check-label" for="oth1">Hypertension</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" value="oth2" id="oth2" />
+                <label class="form-check-label" for="oth2">Cerebrovascular disease</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" value="oth3" id="oth3" />
+                <label class="form-check-label" for="oth3">Liver disease</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" value="oth4" id="oth4" />
+                <label
+                  class="form-check-label"
+                  for="oth4"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  title="Includes motor neurone disease, myasthenia gravis, multiple sclerosis, Parkinson's disease, cerebral palsy, quadriplegia, hemiplegia and progressive cerebellar disease"
+                  >Chronic neurological disease other than stroke or dementia<sup>†</sup></label
+                >
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" value="oth5" id="oth5" />
+                <label class="form-check-label" for="oth5">Organ transplant recipient</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" value="oth6" id="oth6" />
+                <label class="form-check-label" for="oth6" data-bs-toggle="tooltip" data-bs-placement="right" title="Includes splenectomy, or spleen dysfunction (e.g. from sickle cell disease)">Spleen diseases<sup>†</sup></label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" value="oth7" id="oth7" />
+                <label class="form-check-label" for="oth7">Rheumatoid Arthritis, Lupus or Psoriasis</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" value="oth8" id="oth8" />
+                <label
+                  class="form-check-label"
+                  for="oth8"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  title="Includes HIV, conditions inducing permanent immunodeficiency (ever diagnosed), aplastic anaemia, and temporary immunodeficiency recorded within the past year. Does not include treatment with immunosuppressant medication"
+                  >Other immunosuppressive condition<sup>†</sup></label
+                >
+              </div>
             </div>
           </div>
         </div>
         <div class="col">
-          <div class="row bg-primary m-4 p-4 border border-primary rounded fs-3 fw-bold text-white">
-            <div class="d-inline mb-3"><span>Covid-age: </span><span id="display">0</span></div>
-            <hr />
-            <p class="fs-6 fw-light">If infection occurs, the probability that it will be fatal is expected to lie between <span id="lifr">0</span> per 1000 and <span id="uifr">0</span> per 1000</p>
-            <p class="fst-italic fs-6 fw-light d-none" id="below_20">For Covid-ages less than 20, the risk of fatality may be even lower than indicated</p>
+          <div id="age_display_block" class="card m-4 mt-2 bg-primary text-white text-center">
+            <div class="card-header p-2 pt-3"><h2>Your Covid-age:</h2></div>
+            <div class="card-body"><h2 class="fs-1 fw-bold" id="display">0</h2></div>
+            <div class="card-footer">
+              <p class="fs-6 fw-light pt-2">If infection occurs, the probability that it will be fatal is expected to lie between <span id="lifr">0</span> per 1000 and <span id="uifr">0</span> per 1000</p>
+              <p class="fst-italic fs-6 fw-light d-none" id="below_20">For Covid-ages less than 20, the risk of fatality may be even lower than indicated</p>
+            </div>
           </div>
-          <div class="row bg-light m-4 p-4 border border-primary rounded d-none d-sm-block">
+          <div class="card text-dark bg-light m-4 mt-2 p-3">
             <table id="mod_table" class="table">
               <thead>
                 <tr>
@@ -246,58 +245,58 @@
                 <td id="tv_female">-5</td>
                 <td></td>
               </tr>
-              <tr class="tgl d-none" id="tr_asian">
+              <tr class="tgl d-none" id="tr_eth0">
                 <td>Ethnicity</td>
                 <td>Asian or Asian British</td>
-                <td id="tv_asian">5</td>
+                <td id="tv_eth0">5</td>
                 <td></td>
               </tr>
-              <tr class="tgl d-none" id="tr_black">
+              <tr class="tgl d-none" id="tr_eth1">
                 <td>Ethnicity</td>
                 <td>Black</td>
-                <td id="tv_black">7</td>
+                <td id="tv_eth1">7</td>
                 <td></td>
               </tr>
-              <tr class="tgl d-none" id="tr_mixed">
+              <tr class="tgl d-none" id="tr_eth2">
                 <td>Ethnicity</td>
                 <td>Mixed</td>
-                <td id="tv_mixed">5</td>
+                <td id="tv_eth2">5</td>
                 <td></td>
               </tr>
-              <tr class="tgl d-none" id="tr_other">
+              <tr class="tgl d-none" id="tr_eth3">
                 <td>Ethnicity</td>
                 <td>Other non-white</td>
-                <td id="tv_other">4</td>
+                <td id="tv_eth3">4</td>
+                <td></td>
+              </tr>
+              <tr class="tgl d-none" id="tr_bmi0">
+                <td>BMI</td>
+                <td>30 to 34.9</td>
+                <td id="tv_bmi0"></td>
                 <td></td>
               </tr>
               <tr class="tgl d-none" id="tr_bmi1">
                 <td>BMI</td>
-                <td>30 to 34.9</td>
+                <td>35 to 39.9</td>
                 <td id="tv_bmi1"></td>
                 <td></td>
               </tr>
               <tr class="tgl d-none" id="tr_bmi2">
                 <td>BMI</td>
-                <td>35 to 39.9</td>
+                <td>Greater than 40</td>
                 <td id="tv_bmi2"></td>
                 <td></td>
               </tr>
-              <tr class="tgl d-none" id="tr_bmi3">
-                <td>BMI</td>
-                <td>Greater than 40</td>
-                <td id="tv_bmi3"></td>
-                <td></td>
-              </tr>
-              <tr class="tgl d-none" id="tr_mild">
+              <tr class="tgl d-none" id="tr_ast0">
                 <td>Asthma</td>
                 <td>Mild</td>
-                <td id="tv_mild"></td>
+                <td id="tv_ast0"></td>
                 <td></td>
               </tr>
-              <tr class="tgl d-none" id="tr_severe">
+              <tr class="tgl d-none" id="tr_ast1">
                 <td>Asthma</td>
                 <td>Severe</td>
-                <td id="tv_severe"></td>
+                <td id="tv_ast1"></td>
                 <td>Has required treatment with oral steroids in the past twelve months</td>
               </tr>
               <tr class="tgl d-none" id="tr_db0">
@@ -396,58 +395,58 @@
                 <td id="tv_h1"></td>
                 <td></td>
               </tr>
-              <tr class="tgl d-none" id="tr_o0">
+              <tr class="tgl d-none" id="tr_oth0">
                 <td>Other</td>
                 <td>Other chronic respiratory disease</td>
-                <td id="tv_o0"></td>
+                <td id="tv_oth0"></td>
                 <td></td>
               </tr>
-              <tr class="tgl d-none" id="tr_o1">
+              <tr class="tgl d-none" id="tr_oth1">
                 <td>Other</td>
                 <td>Hypertension</td>
-                <td id="tv_o1"></td>
+                <td id="tv_oth1"></td>
                 <td></td>
               </tr>
-              <tr class="tgl d-none" id="tr_o2">
+              <tr class="tgl d-none" id="tr_oth2">
                 <td>Other</td>
                 <td>Cerebrovascular disease</td>
-                <td id="tv_o2"></td>
+                <td id="tv_oth2"></td>
                 <td></td>
               </tr>
-              <tr class="tgl d-none" id="tr_o3">
+              <tr class="tgl d-none" id="tr_oth3">
                 <td>Other</td>
                 <td>Liver disease</td>
-                <td id="tv_o3"></td>
+                <td id="tv_oth3"></td>
                 <td></td>
               </tr>
-              <tr class="tgl d-none" id="tr_o4">
+              <tr class="tgl d-none" id="tr_oth4">
                 <td>Other</td>
                 <td>Chronic neurological disease other than stroke or dementia</td>
-                <td id="tv_o4"></td>
-                <td>Includes motor neurone disease, myasthenia gravis, multiple sclerosis, Parkinsons disease, cerebral palsy, quadriplegia, hemiplegia and progressive cerebellar disease</td>
+                <td id="tv_oth4"></td>
+                <td>Includes motor neurone disease, myasthenia gravis, multiple sclerosis, Parkinson's disease, cerebral palsy, quadriplegia, hemiplegia and progressive cerebellar disease</td>
               </tr>
-              <tr class="tgl d-none" id="tr_o5">
+              <tr class="tgl d-none" id="tr_oth5">
                 <td>Other</td>
                 <td>Organ transplant</td>
-                <td id="tv_o5"></td>
+                <td id="tv_oth5"></td>
                 <td></td>
               </tr>
-              <tr class="tgl d-none" id="tr_o6">
+              <tr class="tgl d-none" id="tr_oth6">
                 <td>Other</td>
                 <td>Spleen diseases</td>
-                <td id="tv_o6"></td>
+                <td id="tv_oth6"></td>
                 <td>Includes splenectomy, or spleen dysfunction (e.g. from sickle cell disease). This is a broad group and clinical judgement may be needed to account for differences in vulnerability within the category</td>
               </tr>
-              <tr class="tgl d-none" id="tr_o7">
+              <tr class="tgl d-none" id="tr_oth7">
                 <td>Other</td>
                 <td>Rheumatoid/lupus/psoriasis</td>
-                <td id="tv_o7"></td>
+                <td id="tv_oth7"></td>
                 <td>Value represents average</td>
               </tr>
-              <tr class="tgl d-none" id="tr_o8">
+              <tr class="tgl d-none" id="tr_oth8">
                 <td>Other</td>
                 <td>Other immunosuppressive condition</td>
-                <td id="tv_o8"></td>
+                <td id="tv_oth8"></td>
                 <td>
                   Includes HIV, conditions inducing permanent immunodeficiency (ever diagnosed), aplastic anaemia, and temporary immunodeficiency recorded within the past year. Does not include treatment with immunosuppressant medication.
                   Do not use for diseases with immunosuppressive effects that are covered elsewhere in the calculator.
@@ -464,32 +463,146 @@
               </tfoot>
             </table>
           </div>
-          <div class="row bg-light m-4 p-4 border border-primary rounded">
-            <p>
-              Estimates of personal vulnerability from the Covid-age calculator are derived from published research in populations with no previous infection by, or vaccination against, SARS-CoV-2. As yet, no empirical data are available on
-              whether and how determinants of vulnerability differ in people who have previously been infected or vaccinated. The estimates may be revised if new research is reported that materially changes the balance of available
-              evidence.
-            </p>
-            <p>Risks associated with health conditions are estimated as averages and may vary within a disease category. Use clinical judgement to adjust the values where appropriate.</p>
-            <p>
-              Where a condition is not included because no adequate evidence is available, it may be reasonable to apply added year estimates taken from other similar conditions that are listed. For example inflammatory bowel diseases and
-              inflammatory skin diseases may have similar vulnerability to inflammatory joint diseases. Clinical judgement should be used.
-            </p>
-            <p>
-              Covid-age estimates vulnerability. Your risk will also depend on local infection rates (viral prevalence), your job role (and controls in place) and your behaviours in relation to social distancing, hygiene and face covering.
-            </p>
-            <p class="fs-5">A suggested stratification for vulnerability is:</p>
-            <ul class="fs-5 list-unstyled">
-              <li>85 and over = very high</li>
-              <li>70-84 = high</li>
-              <li>50-69 = moderate</li>
-              <li>Under 50 = low</li>
-            </ul>
-            <p>Clinical judgement can be used to place individuals in a higher or lower group where appropriate.</p>
+          <div class="card text-dark bg-light m-4 mt-2">
+            <div class="card-header fw-bold">Information</div>
+            <div class="card-body">
+              <p>
+                Estimates of personal vulnerability from the Covid-age calculator are derived from published research in populations with no previous infection by, or vaccination against, SARS-CoV-2. As yet, no empirical data are available
+                on whether and how determinants of vulnerability differ in people who have previously been infected or vaccinated. The estimates may be revised if new research is reported that materially changes the balance of available
+                evidence.
+              </p>
+
+              <p>Risks associated with health conditions are estimated as averages and may vary within a disease category. Use clinical judgement to adjust the values where appropriate.</p>
+              <p>
+                Where a condition is not included because no adequate evidence is available, it may be reasonable to apply added year estimates taken from other similar conditions that are listed. For example inflammatory bowel diseases and
+                inflammatory skin diseases may have similar vulnerability to inflammatory joint diseases. Clinical judgement should be used.
+              </p>
+              <p>
+                Covid-age estimates vulnerability. Your risk will also depend on local infection rates (viral prevalence), your job role (and controls in place) and your behaviours in relation to social distancing, hygiene and face
+                covering.
+              </p>
+              <p class="fs-5">A suggested stratification for vulnerability is:</p>
+              <ul class="fs-5 list-unstyled">
+                <li>85 and over = very high</li>
+                <li>70-84 = high</li>
+                <li>50-69 = moderate</li>
+                <li>Under 50 = low</li>
+              </ul>
+              <p>Clinical judgement can be used to place individuals in a higher or lower group where appropriate.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="bmi_modal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Calculate BMI</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <button id="imp_toggle" class="btn btn-primary">Imperial</button>
+              <button id="met_toggle" class="btn btn-primary">Metric</button>
+              <br />
+              <div id="imperial" class="d-none">
+                <br />
+                <p>Height:</p>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="hgt_feet">Feet: </span>
+                  <input type="number" class="form-control" name="imp_feet" id="imp_feet" min="0" />
+                  <span class="input-group-text" id="hgt_feet">Inches: </span>
+                  <input type="number" class="form-control" name="imp_inch" id="imp_inch" min="0" />
+                </div>
+                <p>Weight:</p>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="wgt_stn">Stone: </span>
+                  <input type="number" class="form-control" name="imp_stn" id="imp_stn" min="0" />
+                  <span class="input-group-text" id="wgt_lbs">Pounds: </span>
+                  <input type="number" class="form-control" name="imp_lbs" id="imp_lbs" min="0" />
+                </div>
+              </div>
+              <div id="metric">
+                <br />
+                <p>Height:</p>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="hgt_m">Meters: </span>
+                  <input type="number" class="form-control" name="met_m" id="met_m" min="0" step=".01" />
+                </div>
+                <p>Weight:</p>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="wgt_kg">Kilograms </span>
+                  <input type="number" class="form-control" name="met_kg" id="met_kg" min="0" step=".1" />
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer"><span>Your BMI Category is:</span><span id="bmi_cat_disp"></span></div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="bmi_calc">Calculate BMI</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="ethnicModal" tabindex="-1" aria-labelledby="ethnicModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="ethnicModalLabel">Ethnic background</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>The ethnic background categories include the following groups:</p>
+              <hr />
+
+              <ul class="ps-2 list-unstyled lh-lg">
+                <li class="fw-bold">Any White background</li>
+                <li class="ps-2">White British</li>
+                <li class="ps-2">White Irish</li>
+                <li class="ps-2">Any other White background</li>
+              </ul>
+              <hr />
+
+              <ul class="ps-2 list-unstyled lh-lg">
+                <li class="fw-bold">Any South Asian background</li>
+                <li class="ps-2">Indian</li>
+                <li class="ps-2">Pakistani</li>
+                <li class="ps-2">Bangladeshi</li>
+                <li class="ps-2">Any other South Asian background</li>
+              </ul>
+              <hr />
+
+              <ul class="ps-2 list-unstyled lh-lg">
+                <li class="fw-bold">Any Black background</li>
+                <li class="ps-2">Black Caribbean</li>
+                <li class="ps-2">Black African</li>
+                <li class="ps-2">Any other Black background</li>
+              </ul>
+              <hr />
+
+              <ul class="ps-2 list-unstyled lh-lg">
+                <li class="fw-bold">Any Mixed background</li>
+                <li class="ps-2">White and Black Caribbean</li>
+                <li class="ps-2">White and Black African</li>
+                <li class="ps-2">White and South Asian</li>
+                <li class="ps-2">Any other Mixed background</li>
+              </ul>
+              <hr />
+
+              <ul class="ps-2 list-unstyled lh-lg">
+                <li class="fw-bold">Any Other background</li>
+                <li class="ps-2">Chinese</li>
+                <li class="ps-2">Any other ethnic background</li>
+              </ul>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
           </div>
         </div>
       </div>
     </main>
+    <footer></footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="./script.js"></script>
   </body>
