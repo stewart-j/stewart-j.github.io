@@ -28,184 +28,14 @@ class Person {
     //standard event handler function for most form inputs
     this.handlerObj = {
       handleEvent: (event) => {
+        console.log(event.target.id);
         let modString = `${event.target.id}`;
-        let modCategory = event.path[1].id.split("_")[0];
+        let modCategory = modString.substring(0, 3);
         this.toggleRow(event.target.value, modCategory);
         this[modString].value = event.target.value;
         this.refreshCovidAge();
       },
     };
-  }
-
-  // EXPERIMENTAL ENCODING RELATED BLOCK START
-
-  decToBin(dec, length) {
-    return (dec >>> 0).toString(2).padStart(length, "0");
-  }
-
-  getModText(num, key) {
-    if (num == 0) {
-      return "none";
-    } else {
-      return `${key}${num - 1}`;
-    }
-  }
-
-  decodeData(code) {
-    if (code.length != 48) {
-      console.error("Invalid code");
-      return -1;
-    }
-    let uU = code.slice(0, 1);
-    if (uU != "1") {
-      console.error("Invalid code");
-      return -1;
-    }
-    let uAge = parseInt(code.slice(1, 7), 2) + 20;
-    let uS = parseInt(code.slice(7, 8), 2) == "0" ? "male" : "female";
-    let uEth = this.getModText(parseInt(code.slice(8, 12), 2), "eth");
-    let uBmi = this.getModText(parseInt(code.slice(12, 15), 2), "bmi");
-    let uAst = this.getModText(parseInt(code.slice(15, 18), 2), "ast");
-    let uDia = this.getModText(parseInt(code.slice(18, 22), 2), "db");
-    let uKid = this.getModText(parseInt(code.slice(22, 25), 2), "kd");
-    let uCan = this.getModText(parseInt(code.slice(25, 28), 2), "nbc");
-    let uBcn = this.getModText(parseInt(code.slice(28, 31), 2), "bc");
-    let uHrt = this.getModText(parseInt(code.slice(31, 34), 2), "h");
-    let uOth = code.slice(34, 43);
-    let othArr = [
-      { modifier: 0, value: "none" },
-      { modifier: 0, value: "none" },
-      { modifier: 0, value: "none" },
-      { modifier: 0, value: "none" },
-      { modifier: 0, value: "none" },
-      { modifier: 0, value: "none" },
-      { modifier: 0, value: "none" },
-      { modifier: 0, value: "none" },
-      { modifier: 0, value: "none" },
-    ];
-    uOth.split("").forEach((e, i) => {
-      if (e == 0) {
-        othArr[i].value = "none";
-      } else {
-        othArr[i].value = `oth${i}`;
-      }
-    });
-    let uPad = code.slice(43);
-    if (uPad != "00000") {
-      console.error("Invalid code");
-      return -1;
-    }
-    return { uAge, uS, uEth, uBmi, uAst, uDia, uKid, uCan, uBcn, uHrt, othArr };
-  }
-
-  setCovidParameters(str) {
-    this.importValues(this.decodeData(this.chunkDecode(this.hexToChunks(str))));
-  }
-
-  importValues(obj) {
-    this.age = obj.uAge;
-    this.setModValue("sex", obj.uS);
-    this.setModValue("ethnicity", obj.uEth);
-    this.setModValue("bmi", obj.uBmi);
-    this.setModValue("asthma", obj.uAst);
-    this.setModValue("diabetes", obj.uDia);
-    this.setModValue("kidney", obj.uKid);
-    this.setModValue("nbc", obj.uCan);
-    this.setModValue("blood", obj.uBcn);
-    this.setModValue("heart", obj.uHrt);
-    this.otherModifiers = obj.othArr;
-
-    if (obj.uS == "male") {
-      document.querySelector("#female").checked = false;
-      document.querySelector("#male").checked = true;
-    } else {
-      document.querySelector("#female").checked = true;
-      document.querySelector("#male").checked = false;
-    }
-
-    document.querySelector("#age").value = obj.uAge;
-    document.querySelector("#ethnicity").value = obj.uEth;
-    document.querySelector("#bmi").value = obj.uBmi;
-    document.querySelector("#asthma").value = obj.uAst;
-    document.querySelector("#diabetes").value = obj.uDia;
-    document.querySelector("#kidney").value = obj.uKid;
-    document.querySelector("#nbc").value = obj.uCan;
-    document.querySelector("#blood").value = obj.uBcn;
-    document.querySelector("#heart").value = obj.uHrt;
-    obj.othArr.forEach((e, i) => {
-      if (e.value == "none") {
-        document.querySelector(`#oth${i}`).checked = false;
-      } else {
-        document.querySelector(`#oth${i}`).checked = true;
-      }
-    });
-
-    this.refreshCovidAge();
-  }
-
-  setModValue(mod, value) {
-    this[mod].value = value;
-  }
-
-  encodeData() {
-    let uU = "1";
-    let uAge = this.decToBin(this.age - 20, 6);
-    let uS = this.sex.value == "male" ? "0" : "1";
-    let uEth = this.ethnicity.value == "none" ? "0000" : this.decToBin(Number(this.ethnicity.value.slice(-1)) + 1, 4);
-    let uBmi = this.bmi.value == "none" ? "000" : this.decToBin(Number(this.bmi.value.slice(-1)) + 1, 3);
-    let uAst = this.asthma.value == "none" ? "000" : this.decToBin(Number(this.asthma.value.slice(-1)) + 1, 3);
-    let uDia = this.diabetes.value == "none" ? "0000" : this.decToBin(Number(this.diabetes.value.slice(-1)) + 1, 4);
-    let uKid = this.kidney.value == "none" ? "000" : this.decToBin(Number(this.kidney.value.slice(-1)) + 1, 3);
-    let uCan = this.nbc.value == "none" ? "000" : this.decToBin(Number(this.nbc.value.slice(-1)) + 1, 3);
-    let uBcn = this.blood.value == "none" ? "000" : this.decToBin(Number(this.blood.value.slice(-1)) + 1, 3);
-    let uHrt = this.heart.value == "none" ? "000" : this.decToBin(Number(this.heart.value.slice(-1)) + 1, 3);
-    let uOth = "";
-    this.otherModifiers.forEach((e) => {
-      if (e.value != "none") {
-        uOth += "1";
-      } else {
-        uOth += "0";
-      }
-    });
-    let uPad = "00000";
-    return uU + uAge + uS + uEth + uBmi + uAst + uDia + uKid + uCan + uBcn + uHrt + uOth + uPad;
-  }
-
-  splitEncodeChunks(inString) {
-    let chunks = [];
-    chunks.push(inString.slice(0, 8));
-    chunks.push(inString.slice(8, 16));
-    chunks.push(inString.slice(16, 24));
-    chunks.push(inString.slice(24, 32));
-    chunks.push(inString.slice(32, 40));
-    chunks.push(inString.slice(40, 48));
-    return chunks;
-  }
-
-  chunksToHex(arr) {
-    let str = "/";
-    arr.forEach((e, i) => {
-      let xorVal = i * 3;
-      str += (parseInt(e, 2) ^ xorVal).toString(16).padStart(2, "0").toUpperCase();
-      str += ":";
-    });
-    return str.substring(0, str.length - 1) + "/";
-  }
-
-  hexToChunks(str) {
-    return str.substring(1, str.length - 1).split(":");
-  }
-
-  chunkDecode(arr) {
-    let str = "";
-    arr.forEach((e, i) => {
-      str += this.decToBin(parseInt(e, 16) ^ (i * 3), 8);
-    });
-    return str;
-  }
-
-  getCovidCode() {
-    return this.chunksToHex(this.splitEncodeChunks(this.encodeData()));
   }
 
   //END ENCODING RELATED BLOCK
@@ -245,12 +75,12 @@ class Person {
     }
     this.assignRand("eth", "ethnicity", 5);
     this.assignRand("ast", "asthma", 3);
-    this.assignRand("db", "diabetes", 7);
-    this.assignRand("kd", "kidney", 3);
+    this.assignRand("dia", "diabetes", 7);
+    this.assignRand("kid", "kidney", 3);
     this.assignRand("bmi", "bmi", 4);
-    this.assignRand("h", "heart", 3);
+    this.assignRand("hea", "heart", 3);
     this.assignRand("nbc", "nbc", 4);
-    this.assignRand("bc", "blood", 4);
+    this.assignRand("blo", "blood", 4);
     this.otherModifiers.forEach((element, index) => {
       let bias = 9;
       if (!this.getRandInt(bias)) {

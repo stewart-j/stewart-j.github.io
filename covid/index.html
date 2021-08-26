@@ -106,12 +106,12 @@
                   <p class="form-label fw-bold">Diabetes</p>
                   <select name="diabetes" id="diabetes" class="form-select">
                     <option value="none">None</option>
-                    <option value="db0">Type 1 - HbA1c less than or equal to 58 mmol/mol in past year</option>
-                    <option value="db1">Type 1 - HbA1c greater than 58 mmol/mol in past year</option>
-                    <option value="db2">Type 1 - HbA1c unknown</option>
-                    <option value="db3">Type 2 and other - HbA1c less than or equal to 58 mmol/mol in past year</option>
-                    <option value="db4">Type 2 and other - HbA1c greater than 58 mmol/mol in past year</option>
-                    <option value="db5">Type 2 and other - HbA1c unknown</option>
+                    <option value="dia0">Type 1 - HbA1c less than or equal to 58 mmol/mol in past year</option>
+                    <option value="dia1">Type 1 - HbA1c greater than 58 mmol/mol in past year</option>
+                    <option value="dia2">Type 1 - HbA1c unknown</option>
+                    <option value="dia3">Type 2 and other - HbA1c less than or equal to 58 mmol/mol in past year</option>
+                    <option value="dia4">Type 2 and other - HbA1c greater than 58 mmol/mol in past year</option>
+                    <option value="dia5">Type 2 and other - HbA1c unknown</option>
                   </select>
                 </div>
               </div>
@@ -123,8 +123,8 @@
                   <p class="form-label fw-bold">Chronic kidney disease</p>
                   <select name="kidney" id="kidney" class="form-select">
                     <option value="none">None</option>
-                    <option value="kd0">Estimated GFR 30-60 mL/min</option>
-                    <option value="kd1">Estimated GFR less than 30 mL/min (includes patients on dialysis)</option>
+                    <option value="kid0">Estimated GFR 30-60 mL/min</option>
+                    <option value="kid1">Estimated GFR less than 30 mL/min (includes patients on dialysis)</option>
                   </select>
                 </div>
               </div>
@@ -133,8 +133,8 @@
                   <p class="form-label fw-bold">Heart conditions</p>
                   <select name="heart" id="heart" class="form-select">
                     <option value="none">None</option>
-                    <option value="h0">Heart failure</option>
-                    <option value="h1">Other chronic heart disease</option>
+                    <option value="hea0">Heart failure</option>
+                    <option value="hea1">Other chronic heart disease</option>
                   </select>
                 </div>
               </div>
@@ -146,9 +146,9 @@
                   <p class="form-label fw-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Including leukaemia, lymphoma or myeloma">Cancer: blood related<sup>†</sup></p>
                   <select name="blood" id="blood" class="form-select">
                     <option value="none">None</option>
-                    <option value="bc0">Diagnosed less than 1 year ago</option>
-                    <option value="bc1">Diagnosed 1 to 4.9 years ago</option>
-                    <option value="bc2">Diagnosed 5 years ago or longer</option>
+                    <option value="blo0">Diagnosed less than 1 year ago</option>
+                    <option value="blo1">Diagnosed 1 to 4.9 years ago</option>
+                    <option value="blo2">Diagnosed 5 years ago or longer</option>
                   </select>
                 </div>
               </div>
@@ -299,52 +299,52 @@
                 <td id="tv_ast1"></td>
                 <td>Has required treatment with oral steroids in the past twelve months</td>
               </tr>
-              <tr class="tgl d-none" id="tr_db0">
+              <tr class="tgl d-none" id="tr_dia0">
                 <td>Diabetes</td>
                 <td>Type 1 HbA1c less than or equal to 58 mmol/mol in past year</td>
-                <td id="tv_db0"></td>
+                <td id="tv_dia0"></td>
                 <td></td>
               </tr>
-              <tr class="tgl d-none" id="tr_db1">
+              <tr class="tgl d-none" id="tr_dia1">
                 <td>Diabetes</td>
                 <td>Type 1 HbA1c greater than 58 mmol/mol in past year</td>
-                <td id="tv_db1"></td>
+                <td id="tv_dia1"></td>
                 <td></td>
               </tr>
-              <tr class="tgl d-none" id="tr_db2">
+              <tr class="tgl d-none" id="tr_dia2">
                 <td>Diabetes</td>
                 <td>Type 1 HbA1c unknown</td>
-                <td id="tv_db2"></td>
+                <td id="tv_dia2"></td>
                 <td></td>
               </tr>
-              <tr class="tgl d-none" id="tr_db3">
+              <tr class="tgl d-none" id="tr_dia3">
                 <td>Diabetes</td>
                 <td>Type 2 and other HbA1c less than or equal to 58 mmol/mol in past year</td>
-                <td id="tv_db3"></td>
+                <td id="tv_dia3"></td>
                 <td></td>
               </tr>
-              <tr class="tgl d-none" id="tr_db4">
+              <tr class="tgl d-none" id="tr_dia4">
                 <td>Diabetes</td>
                 <td>Type 2 and other HbA1c greater than 58 mmol/mol in past year</td>
-                <td id="tv_db4"></td>
+                <td id="tv_dia4"></td>
                 <td></td>
               </tr>
-              <tr class="tgl d-none" id="tr_db5">
+              <tr class="tgl d-none" id="tr_dia5">
                 <td>Diabetes</td>
                 <td>Type 2 and other HbA1c unknown</td>
-                <td id="tv_db5"></td>
+                <td id="tv_dia5"></td>
                 <td></td>
               </tr>
-              <tr class="tgl d-none" id="tr_kd0">
+              <tr class="tgl d-none" id="tr_kid0">
                 <td>Chronic kidney disease</td>
                 <td>Estimated GFR 30-60 mL/min</td>
-                <td id="tv_kd0"></td>
+                <td id="tv_kid0"></td>
                 <td></td>
               </tr>
-              <tr class="tgl d-none" id="tr_kd1">
+              <tr class="tgl d-none" id="tr_kid1">
                 <td>Chronic kidney disease</td>
                 <td>Estimated GFR less than 30 mL/min (includes patients on dialysis)</td>
-                <td id="tv_kd1"></td>
+                <td id="tv_kid1"></td>
                 <td></td>
               </tr>
               <tr class="tgl d-none" id="tr_nbc0">
@@ -365,34 +365,34 @@
                 <td id="tv_nbc2"></td>
                 <td></td>
               </tr>
-              <tr class="tgl d-none" id="tr_bc0">
+              <tr class="tgl d-none" id="tr_blo0">
                 <td>Haematological cancer</td>
                 <td>Diagnosed less than 1 year ago</td>
-                <td id="tv_bc0"></td>
+                <td id="tv_blo0"></td>
                 <td>Value represents average across category, including some people receiving immunosuppressive treatments</td>
               </tr>
-              <tr class="tgl d-none" id="tr_bc1">
+              <tr class="tgl d-none" id="tr_blo1">
                 <td>Haematological cancer</td>
                 <td>Diagnosed 1 to 4.9 years ago</td>
-                <td id="tv_bc1"></td>
+                <td id="tv_blo1"></td>
                 <td>Value represents average across category, including some people receiving immunosuppressive treatments</td>
               </tr>
-              <tr class="tgl d-none" id="tr_bc2">
+              <tr class="tgl d-none" id="tr_blo2">
                 <td>Haematological cancer</td>
                 <td>Diagnosed 5 years ago or longer</td>
-                <td id="tv_bc2"></td>
+                <td id="tv_blo2"></td>
                 <td>Value represents average across category, including some people receiving immunosuppressive treatments</td>
               </tr>
-              <tr class="tgl d-none" id="tr_h0">
+              <tr class="tgl d-none" id="tr_hea0">
                 <td>Heart</td>
                 <td>Heart failure</td>
-                <td id="tv_h0"></td>
+                <td id="tv_hea0"></td>
                 <td></td>
               </tr>
-              <tr class="tgl d-none" id="tr_h1">
+              <tr class="tgl d-none" id="tr_hea1">
                 <td>Heart</td>
                 <td>Other chronic heart disease</td>
-                <td id="tv_h1"></td>
+                <td id="tv_hea1"></td>
                 <td></td>
               </tr>
               <tr class="tgl d-none" id="tr_oth0">
