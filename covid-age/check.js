@@ -25,5 +25,5 @@ function detectIEEdge() {
 }
 
 if (detectIEEdge()) {
-  alert("You may be using an unsupported browser, for best results, use this site only in Chrome, Edge, Firefox or Safari. \n\n(If the Covid-age display shows 0, the calculator is not functioning as intended.)");
+  alert("You may be using an unsupported browser, for best results, use this site only in the latest version of Chrome, Edge (Chromium), Firefox or Safari. \n\n(If the Covid-age display shows 0, the calculator is not functioning as intended.)");
 }
