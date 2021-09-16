@@ -28,6 +28,24 @@ user.addListener(document.querySelector("#heart"));
 for (let check of document.querySelectorAll(".oth_grp input")) {
   user.otherListener(check);
 }
+document.querySelector("#adm1").addEventListener("change", (e) => {
+  if (e.target.checked) {
+    user.riskLevelMod = -1;
+  } else {
+    user.riskLevelMod = 0;
+  }
+  user.refreshCovidAge();
+});
+document.querySelector("#adm2").addEventListener("change", (e) => {
+  if (e.target.checked) {
+    user.isPregnant = true;
+  } else {
+    user.isPregnant = false;
+  }
+  user.refreshCovidAge();
+});
+
+//display tooltip logics
 
 let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
 let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {

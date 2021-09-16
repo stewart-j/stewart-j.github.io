@@ -14,6 +14,9 @@ class Person {
     this.heart = { modifier: 0, value: "none" };
     this.bmi = { modifier: 0, value: "none" };
     this.covidAge = age;
+    this.covidRiskLevel = 1;
+    this.riskLevelMod = 0;
+    this.isPregnant = false;
     this.otherModifiers = [
       { modifier: 0, value: "none" },
       { modifier: 0, value: "none" },
@@ -320,6 +323,7 @@ class Person {
   calculateCovidAge() {
     //set covid age property based on actual age + modifiers, set it to "85+" as per ALAMA methodology if too high
     this.covidAge = this.age + this.sumModifiers();
+    this.covidRiskLevel = this.calculateCovidRisk(this.covidAge);
     return this.covidAge;
   }
 
@@ -357,6 +361,24 @@ class Person {
     });
   }
 
+  calculateCovidRisk(age) {
+    let risk = 0;
+    if (age < 50) {
+      risk = 1;
+    } else if (age < 70) {
+      risk = 2;
+    } else if (age < 85) {
+      risk = 3;
+    } else {
+      risk = 4;
+    }
+    risk += this.riskLevelMod;
+    if (user.isPregnant) {
+      return 4;
+    }
+    return risk < 1 ? 1 : risk;
+  }
+
   sexListener(target, sex) {
     //yet another specialised listener for sex
     target.addEventListener("change", (e) => {
@@ -379,6 +401,8 @@ class Person {
     }
     //update covid code
     document.querySelector("#covid_code").innerText = this.getCovidCode();
+    this.covidRiskLevel = this.calculateCovidRisk(this.covidAge);
+    document.querySelector("#risk_level").innerText = this.covidRiskLevel;
   }
 
   initialiseValues() {

@@ -171,7 +171,7 @@
               </div>
             </div>
 
-            <div class="oth_grp mb-3">
+            <div class="oth_grp mb-2">
               <p class="form-label fw-bold">Other conditions</p>
               <div class="form-check mb-2">
                 <input class="form-check-input" type="checkbox" value="oth0" id="oth0" />
@@ -224,6 +224,24 @@
                 >
               </div>
             </div>
+            <div class="adm_grp mb-3">
+              <p class="form-label fw-bold">Additional modifiers</p>
+              <div class="form-check mb-2">
+                <label
+                  class="form-check-label"
+                  for="adm1"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  title="Pfizer-BioNTech (tozinameran/Comirnaty), Moderna (elasomeran/Spikevax), Oxford-AstraZeneca (ChAdOx1-S/Vaxzevria) or Janssen (Johnson & Johnson)"
+                  >I have completed a full course of a UK-approved COVID-19 vaccination.<sup>†</sup></label
+                >
+                <input class="form-check-input" type="checkbox" value="adm1" id="adm1" />
+              </div>
+              <div class="form-check mb-2">
+                <label class="form-check-label" for="adm2">I am currently pregnant.</label>
+                <input class="form-check-input" type="checkbox" value="adm2" id="adm2" />
+              </div>
+            </div>
           </div>
         </div>
         <div class="col">
@@ -239,7 +257,10 @@
 
           <div id="age_display_block" class="card m-4 bg-primary text-white text-center">
             <div class="card-header p-2 pt-3 fs-3"><h2>Your Covid-age:</h2></div>
-            <div class="card-body"><h2 class="fs-1 fw-bold p-2 pt-0" id="display">0</h2></div>
+            <div class="card-body">
+              <h2 class="fs-1 fw-bold p-2 pt-0" id="display">0</h2>
+              <h3 class="fs-2 fw-normal">Risk level: <span id="risk_level"></span></h3>
+            </div>
             <div class="card-footer">
               <p class="fs-5 fw-light pt-2">Please make a note of this as the tool does not store your information.</p>
               <h3 id="covid_code" class="fs-2 fw-light d-none pb-3">/00:00:00:00:00:00/</h3>
